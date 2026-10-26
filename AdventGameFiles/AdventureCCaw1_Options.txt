@@ -1,0 +1,61 @@
+
+			Febuary 13th, 2007.
+
+	Description of AdventureCCaw1 Command line options For 32 bit MS-Windows Console.
+ 
+			Al Whinery of Maryland.
+
+	This does not include programmer compile time test options.
+
+Command line options:
+
+	All options start with a dash "-".
+	Some options have a flag letter followed by a keyword. The flag and keyword can be seperated by a space.
+	Other options are just the keyword.
+
+	flag: 'r' keyword           -- restore file, keyword is the file name to restore
+	flag: 'i' keyword           -- input command file, keyword is the command file name to input and process.
+	flag: 'l' keyword           -- set log file name, keyword is the new log file name
+	flag: 't' keyword           -- set ADVENT*.* file path, keyword is the new path name
+	                            -- the release version reads the ADVENT*.* files
+				    -- from the .EXE directory unless
+                                    -- the -t switch is set to a different path.
+
+	keyword: "autocp"           -- creates a *.adv file in AutoCp after each succesfull move.
+	keyword: "deletelog"        -- deletes the log file. 
+	keyword: "decrypt"          -- creates human readable ADVENT*.TXT files from the ADVENT*.DAT
+	keyword: "encrypt"          -- creates program readable ADVENT*.DAT files from the ADVENT*.TXT
+	keyword: "DisableDwarves"   -- Disable Dwarf activity.
+	keyword: "DisablePirate"    -- Disable Pirate activity, also places the chest so it can be found.
+	keyword: "friendly"         -- Display Location numbers and makes dwarves and the pirate less tidious.
+
+Runtime options: (Not complete.)
+
+"info"                -- Gives general information.
+"help help"           -- This lists verbs and movements.
+                      -- To get help on any verb type "help" then the verb
+"help" verb           -- Where verb is in the list from the help help command.
+The following are very useful.
+"help autocp"
+"help hints"
+"help brief"
+"help friendly"
+"help log"
+"help cp"
+"help reset"
+"help input"
+"help vocablength"
+
+
+Notice of good faith:
+	At time of distribution, it is my best belief that this is a non-malicious program.
+
+Disclaimer:
+	This is freeware intended for enjoyment
+	 and none of the authors
+	 shall be held responsible for any damage caused by it's use.
+
+Caution:
+	Always scan new programs for viruses and other infections.
+
+Any comments can be sent to <al underscore whinery at ya hoo dot com>.
