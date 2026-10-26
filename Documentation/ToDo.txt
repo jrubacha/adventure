@@ -1,0 +1,63 @@
+*******Action Verb table
+*******Bug Defines
+*******Reset Time Correctly
+*******"lamp on" describe items
+*******Add logging
+*******Add Friendly
+*******Toggle code for Brief
+*******Toggle code for Friendly
+*******Add Get & Put All
+*******Modify InitPlay
+*******Allow startup witout *.dat files.
+*******Map clean up
+*******Juggle test
+*******Add Help Verb
+*******Rework AdvMessageData.Cpp
+*******Create Long Array Class
+*******Create short Array Class
+*******Change save and restore
+*******"rcp" describe items
+*******Move Cave table to ADVENT0.TXT
+*******Remove "enter" as a way out of the building.
+*******Fix duplicate logging
+*******Fix"Climb Plant"
+*******Make "yes" read from command file.
+******Create Cave Table class [][], did (loc,kk) instead.
+******check all descitems()
+*******create commands for disable/enable dwarf and pirate.
+*******Create a test routine that can put you in
+*******any location from anywhere (tella-port)
+*******and steal any objects from any where (tella-grab).
+*******create command for word length compatability add set# param.
+*******Fix array width.
+*******write class for Travel.
+*******Rewrite cave class to use LongIntArray.
+*******change move to use where1 and where2 params.
+*******Modify "Drop" to assume only object.
+*******Get rid of MAXOBJ
+*******Add new forest for tree house
+*******Add tree house
+*******Add map room or main office
+*******Put map in tree house
+*******Add extra points for leaving the map in the main office.
+*******Add extra points for visiting all locations.
+*******Modify Travel Class to allow access to each variable seperatly.
+*******Test "go back" had to rewrite forced move.
+*******Toggle hints ON/OFF.
+*******Document.
+I fixed some more bugs. 
+Added a class for random and percent.
+Modified Dwarf and Pirate logic a little. Fixed one existing bug and one I introduced..
+Added more features to make testing easier.
+Added AutoSave to make playing easier.
+Hardened save and restore code.
+Changed the CaveArray to embed an array of TravelArray classes instead of longs.
+Fixed a bug in move/cary/drop. This is my version so I don't know if bug was in orignal.
+Split code into smaller logical units.
+Added more documentation.
+
+Note: This list was started after my first month of develpment
+      so it does not contain alot of major changes.
+
+
+

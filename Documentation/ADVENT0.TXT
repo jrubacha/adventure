@@ -1,0 +1,1245 @@
+@--- 
+@--- Move references
+@--- 
+@--- MOV_NONE 0
+@--- MOV_NOT_ALLOWED 1
+@--- MOV_HILL 2
+@--- MOV_ROAD 2
+@--- MOV_ENTER 3
+@--- MOV_DOWNSTREAM 4
+@--- MOV_UPSTREAM 5
+@--- MOV_FOREST 6
+@--- MOV_FORWARD 7
+@--- MOV_ONWARD 7
+@--- MOV_BACK 8
+@--- MOV_RETREAT 8
+@--- MOV_RETURN 8
+@--- MOV_VALLEY 9
+@--- MOV_STAIRS 10
+@--- MOV_OUTSIDE 11
+@--- MOV_LEAVE 11
+@--- MOV_EXIT 11
+@--- MOV_OUT 11
+@--- MOV_BUILDING 12
+@--- MOV_HOUSE 12
+@--- MOV_GULLY 13
+@--- MOV_STREAM 14
+@--- MOV_ROCK 15
+@--- MOV_BED 16
+@--- MOV_CRAWL 17
+@--- MOV_COBBLESTONE 18
+@--- MOV_INSIDE 19
+@--- MOV_INWARD 19
+@--- MOV_IN 19
+@--- MOV_SURFACE 20
+@--- MOV_NOWHERE 21
+@--- MOV_NULL 21
+@--- MOV_DARK 22
+@--- MOV_PASSAGE 23
+@--- MOV_TUNNEL 23
+@--- MOV_LOW 24
+@--- MOV_CANYON 25
+@--- MOV_AWKWARD 26
+@--- MOV_GIANT 27
+@--- MOV_VIEW 28
+@--- MOV_ASCEND 29
+@--- MOV_UPWARD 29
+@--- MOV_ABOVE 29
+@--- MOV_UP 29
+@--- MOV_U 29
+@--- MOV_DOWNWARD 30
+@--- MOV_DESCEND 30
+@--- MOV_DOWN 30
+@--- MOV_D 30
+@--- MOV_PIT 31
+@--- MOV_OUTDOORS 32
+@--- MOV_CRACK 33
+@--- MOV_STEPS 34
+@--- MOV_DOME 35
+@--- MOV_LEFT 36
+@--- MOV_RIGHT 37
+@--- MOV_HALL 38
+@--- MOV_JUMP 39
+@--- MOV_BARREN 40
+@--- MOV_OVER 41
+@--- MOV_ACROSS 42
+@--- MOV_EAST 43
+@--- MOV_E 43
+@--- MOV_WEST 44
+@--- MOV_W 44
+@--- MOV_NORTH 45
+@--- MOV_N 45
+@--- MOV_SOUTH 46
+@--- MOV_S 46
+@--- MOV_NE 47
+@--- MOV_SE 48
+@--- MOV_SW 49
+@--- MOV_NW 50
+@--- MOV_DEBRIS 51
+@--- MOV_HOLE 52
+@--- MOV_WALL 53
+@--- MOV_BROKEN 54
+@--- MOV_Y2 55
+@--- MOV_CLIMB 56
+@--- MOV_FLOOR 58
+@--- MOV_ROOM 59
+@--- MOV_SLIT 60
+@--- MOV_SLAB 61
+@--- MOV_XYZZY 62
+@--- MOV_DEPRESSION 63
+@--- MOV_ENTRANCE 64
+@--- MOV_PLUGH 65
+@--- MOV_SECRET 66
+@--- MOV_CAVE 67
+@--- MOV_CROSS 69
+@--- MOV_BEDQUILT 70
+@--- MOV_PLOVER 71
+@--- MOV_ORIENTAL 72
+@--- MOV_CAVERN 73
+@--- MOV_SHELL 74
+@--- MOV_RESERVOIR 75
+@--- MOV_OFFICE 76
+@--- MOV_MAIN 76
+@--- MOV_FORK 77
+@--- 
+@--- Condition references
+@--- 
+@--- DARK	  (short)0			// No light
+@--- LIGHT	  (short)1			// Light
+@--- OIL	  (short)2			// LIQUID + OIL is Oil
+@--- LIQUID	  (short)4			// LIQUID is Water
+@--- NOPIRAT	  (short)8			// No Pirate or Dwarves allowed
+@--- FORCED_MOVE (short)16			// Forced move cond value
+@--- HINTC       (short)32			// trying_get_into_cave?
+@--- HINTB       (short)64			// trying_catch_bird?
+@--- HINTS      (short)128			// trying_deal_with_snake
+@--- HINTM      (short)256			// help_getting_out_maze?
+@--- HINTP      (short)512			// explore_beyond_plover_room?
+@--- HINTW     (short)1024			// need_help_getting_out_wits_end
+@--- HINTF     (short)2048			// trying_to_find_cave ?
+@--- HINTO     (short)4096			// Other hint???
+@--- 
+#000|File Discription
+!000|objLocTbl|06|000|000|Movable|ROD2|
+!000|objLocTbl|15|000|000|Movable|OYSTER|
+!000|objLocTbl|17|000|-01|Fixed  |DWARF|
+!000|objLocTbl|18|000|000|Movable|KNIFE|
+!000|objLocTbl|28|000|000|Movable|AXE|
+!000|objLocTbl|34|000|000|Movable|TROLL2|
+!000|objLocTbl|36|000|-01|Fixed  |MESSAGE|
+!000|objLocTbl|39|000|000|Movable|BATTERIES|
+!000|objLocTbl|55|000|000|Movable|CHEST|
+!000|objLocTbl|61|000|000|Movable|PEARL|
+-- !loc|objLocTbl|objNum|loc1|loc2|Movable or Fixed  |object|
+-- !loc|locCondTbl|condition|...|
+-- ~loc|seq|dest|move|obj cond|obj or pct|Move names|...| (just for readability)
+-- loc is current location.
+-- seq is the order of the movement within this location.
+-- seq must be numbered from 1 to n (Removed the 16 or less limit)
+-- move > 500 is advent4 message (move-500).
+-- move > 300 is special movement.
+-- move = 301 is (plover to alcove) or (alcove to plover) ( only carry emmerald ).
+-- move = 302 is (bad route) ( drop emmerald ).
+-- move = 303 is (TROLL Bridge) ( Need Treasure TOLL or Bear ).
+-- move <= 300 is the movement number to dest.
+-- dest is the location to move to if move is <= 300.
+-- obj cond == 0 means (obj or pct) is percent chance of this move.
+-- obj cond > 0 means (obj or pct) is a condition with carying or not carying the object.
+-- 
+#001|You're at end of road again.
+!001|locCondTbl|HINTF|LIQUID|LIGHT|
+~001|01|002|002|0|00|hill|road|
+~001|02|002|044|0|00|west|w|
+~001|03|002|029|0|00|ascend|upward|above|up|u|
+~001|04|003|003|0|00|enter|
+~001|05|003|012|0|00|building|house|
+~001|06|003|019|0|00|inside|inward|in|
+~001|07|003|043|0|00|east|e|
+~001|08|004|013|0|00|gully|
+~001|09|004|014|0|00|stream|
+~001|10|004|046|0|00|south|s|
+~001|11|004|030|0|00|downward|descend|down|d|
+~001|12|004|004|0|00|downstream|
+~001|13|005|006|0|00|forest|
+~001|14|005|045|0|00|north|n|
+~001|15|008|063|0|00|depression|
+~001|16|143|076|0|30|main|office|
+#002|You're at hill in road.
+!002|locCondTbl|HINTF|LIGHT|
+~002|01|001|002|0|00|hill|road|
+~002|02|001|012|0|00|building|house|
+~002|03|001|007|0|00|forward|onward|
+~002|04|001|043|0|00|east|e|
+~002|05|001|045|0|00|north|n|
+~002|06|001|030|0|00|downward|descend|down|d|
+~002|07|005|006|0|00|forest|
+~002|08|005|045|0|00|north|n|
+~002|09|005|046|0|00|south|s|
+#003|You're inside building.
+!003|objLocTbl|01|003|000|Movable|KEYS|
+!003|objLocTbl|02|003|000|Movable|LAMP|
+!003|objLocTbl|19|003|000|Movable|FOOD|
+!003|objLocTbl|20|003|000|Movable|BOTTLE|
+!003|locCondTbl|HINTF|LIQUID|LIGHT|
+~003|01|001|011|0|00|outside|leave|exit|out|
+~003|02|001|032|0|00|outdoors|
+~003|03|001|044|0|00|west|w|
+~003|04|011|062|0|00|xyzzy|
+~003|05|033|065|0|00|plugh|
+~003|06|079|004|0|00|downstream|
+~003|07|079|005|0|00|upstream|
+~003|08|079|014|0|00|stream|
+#004|You're in valley.
+!004|locCondTbl|HINTF|LIQUID|LIGHT|
+~004|01|001|012|0|00|building|house|
+~004|02|001|045|0|00|north|n|
+~004|03|005|006|0|00|forest|
+~004|04|005|043|0|00|east|e|
+~004|05|005|044|0|00|west|w|
+~004|06|005|029|0|00|ascend|upward|above|up|u|
+~004|07|007|004|0|00|downstream|
+~004|08|001|005|0|00|upstream|
+~004|09|007|046|0|00|south|s|
+~004|10|007|030|0|00|downward|descend|down|d|
+~004|11|008|063|0|00|depression|
+#005|You're in forest.
+!005|locCondTbl|HINTF|LIGHT|
+~005|01|004|009|0|00|valley|
+~005|02|004|043|0|00|east|e|
+~005|03|004|030|0|00|downward|descend|down|d|
+~005|04|005|006|0|50|forest|
+~005|05|005|007|0|50|forward|onward|
+~005|06|005|045|0|50|north|n|
+~005|07|006|006|0|00|forest|
+~005|08|006|007|0|00|forward|onward|
+~005|09|006|045|0|00|north|n|
+~005|10|005|044|0|00|west|w|
+~005|11|005|046|0|00|south|s|
+~005|12|141|050|0|30|northwest|nw|
+~005|13|006|029|0|00|ascend|upward|above|up|u|
+#006|You're in forest.
+!006|locCondTbl|HINTF|LIGHT|
+~006|01|001|002|0|00|hill|road|
+~006|02|001|045|0|00|north|n|
+~006|03|004|009|0|00|valley|
+~006|04|004|043|0|00|east|e|
+~006|05|004|044|0|75|west|w|
+~006|06|141|044|0|30|west|w|
+~006|07|004|030|0|00|downward|descend|down|d|
+~006|08|141|006|0|00|forest|
+~006|09|005|046|0|00|south|s|
+~006|10|141|050|0|75|northwest|nw|
+#007|You're at slit in streambed.
+!007|locCondTbl|HINTF|LIQUID|LIGHT|
+~007|01|001|012|0|00|building|house|
+~007|02|004|045|0|00|north|n|
+~007|03|005|006|0|00|forest|
+~007|04|005|043|0|00|east|e|
+~007|05|005|044|0|00|west|w|
+~007|06|008|004|0|00|downstream|
+~007|07|004|005|0|00|upstream|
+~007|08|008|015|0|00|rock|
+~007|09|008|016|0|00|bed|
+~007|10|008|046|0|00|south|s|
+~007|11|595|060|0|00|slit|
+~007|12|595|014|0|00|stream|
+~007|13|595|030|0|00|downward|descend|down|d|
+#008|You're outside grate.
+!008|objLocTbl|03|008|009|Fixed  |GRATE|
+!008|locCondTbl|HINTC|LIGHT|
+~008|01|005|006|0|00|forest|
+~008|02|005|043|0|00|east|e|
+~008|03|005|046|0|00|south|s|
+~008|04|005|044|0|00|west|w|
+~008|05|001|012|0|00|building|house|
+~008|06|007|005|0|00|upstream|
+~008|07|007|013|0|00|gully|
+~008|08|007|045|0|00|north|n|
+~008|09|009|003|3|03|enter|
+~008|10|009|019|3|03|inside|inward|in|
+~008|11|009|030|3|03|downward|descend|down|d|
+~008|12|593|003|0|00|enter|
+#009|You're below the grate.
+!009|objLocTbl|03|008|009|Fixed  |GRATE|
+!009|locCondTbl|LIGHT|
+~009|01|008|011|3|03|outside|leave|exit|out|
+~009|02|008|029|3|03|ascend|upward|above|up|u|
+~009|03|593|011|0|00|outside|leave|exit|out|
+~009|04|010|017|0|00|crawl|
+~009|05|010|018|0|00|cobblestone|
+~009|06|010|019|0|00|inside|inward|in|
+~009|07|010|044|0|00|west|w|
+~009|08|014|031|0|00|pit|
+~009|09|011|051|0|00|debris|
+#010|You're in cobble crawl.
+!010|objLocTbl|04|010|000|Movable|CAGE|
+!010|locCondTbl|LIGHT|
+~010|01|009|011|0|00|outside|leave|exit|out|
+~010|02|009|020|0|00|surface|
+~010|03|009|021|0|00|nowhere|null|
+~010|04|009|043|0|00|east|e|
+~010|05|011|019|0|00|inside|inward|in|
+~010|06|011|022|0|00|dark|
+~010|07|011|044|0|00|west|w|
+~010|08|011|051|0|00|debris|
+~010|09|014|031|0|00|pit|
+#011|You're in debris room.
+!011|objLocTbl|05|011|000|Movable|ROD|
+!011|locCondTbl|DARK|
+~011|01|008|063|3|03|depression|
+~011|02|009|064|0|00|entrance|
+~011|03|010|017|0|00|crawl|
+~011|04|010|018|0|00|cobblestone|
+~011|05|010|023|0|00|passage|tunnel|
+~011|06|010|024|0|00|low|
+~011|07|010|043|0|00|east|e|
+~011|08|012|025|0|00|canyon|
+~011|09|012|019|0|00|inside|inward|in|
+~011|10|012|029|0|00|ascend|upward|above|up|u|
+~011|11|012|044|0|00|west|w|
+~011|12|003|062|0|00|xyzzy|
+~011|13|014|031|0|00|pit|
+#012|You are in an awkward sloping east/west canyon.
+!012|locCondTbl|DARK|
+~012|01|008|063|3|03|depression|
+~012|02|009|064|0|00|entrance|
+~012|03|011|030|0|00|downward|descend|down|d|
+~012|04|011|043|0|00|east|e|
+~012|05|011|051|0|00|debris|
+~012|06|013|019|0|00|inside|inward|in|
+~012|07|013|029|0|00|ascend|upward|above|up|u|
+~012|08|013|044|0|00|west|w|
+~012|09|014|031|0|00|pit|
+#013|You're in bird chamber.
+!013|objLocTbl|08|013|000|Movable|BIRD|
+!013|locCondTbl|DARK|HINTB|
+~013|01|008|063|3|03|depression|
+~013|02|009|064|0|00|entrance|
+~013|03|011|051|0|00|debris|
+~013|04|012|025|0|00|canyon|
+~013|05|012|043|0|00|east|e|
+~013|06|014|023|0|00|passage|tunnel|
+~013|07|014|031|0|00|pit|
+~013|08|014|044|0|00|west|w|
+#014|You're at top of small pit.
+!014|objLocTbl|07|014|015|Fixed  |STEPS|
+!014|locCondTbl|DARK|
+~014|01|008|063|3|03|depression|
+~014|02|009|064|0|00|entrance|
+~014|03|011|051|0|00|debris|
+~014|04|013|023|0|00|passage|tunnel|
+~014|05|013|043|0|00|east|e|
+~014|06|020|030|1|50|downward|descend|down|d|
+~014|07|020|031|1|50|pit|
+~014|08|020|034|1|50|steps|
+~014|09|015|030|0|00|downward|descend|down|d|
+~014|10|016|033|0|00|crack|
+~014|11|016|044|0|00|west|w|
+#015|You're in hall of mists.
+!015|objLocTbl|07|014|015|Fixed  |STEPS|
+!015|locCondTbl|DARK|
+~015|01|018|036|0|00|left|
+~015|02|018|046|0|00|south|s|
+~015|03|017|007|0|00|forward|onward|
+~015|04|017|038|0|00|hall|
+~015|05|017|044|0|00|west|w|
+~015|06|019|010|0|00|stairs|
+~015|07|019|030|0|00|downward|descend|down|d|
+~015|08|019|045|0|00|north|n|
+~015|09|022|029|1|50|ascend|upward|above|up|u|
+~015|10|022|031|1|50|pit|
+~015|11|022|034|1|50|steps|
+~015|12|022|035|1|50|dome|
+~015|13|022|023|1|50|passage|tunnel|
+~015|14|022|043|1|50|east|e|
+~015|15|014|029|0|00|ascend|upward|above|up|u|
+~015|16|034|055|0|00|y2|
+#016|The crack is far too small for you to follow.
+!016|locCondTbl|FORCED_MOVE|
+~016|01|014|001|0|00|Movement Not Allowed|
+#017|You're on east bank of fissure.
+!017|objLocTbl|12|017|027|Fixed  |FISSURE|
+!017|locCondTbl|DARK|
+~017|01|015|038|0|00|hall|
+~017|02|015|043|0|00|east|e|
+~017|03|596|039|3|12|jump|
+~017|04|021|007|4|12|forward|onward|
+~017|05|597|041|4|12|over|
+~017|06|597|042|4|12|across|
+~017|07|597|044|4|12|west|w|
+~017|08|597|069|4|12|cross|
+~017|09|027|041|0|00|over|
+#018|You're in nugget of gold room.
+!018|objLocTbl|50|018|000|Movable|NUGGET|
+!018|locCondTbl|DARK|
+~018|01|015|038|0|00|hall|
+~018|02|015|011|0|00|outside|leave|exit|out|
+~018|03|015|045|0|00|north|n|
+#019|You're in hall of mt. king.
+!019|objLocTbl|11|019|-01|Fixed  |SNAKE|
+!019|locCondTbl|DARK|HINTS|
+~019|01|015|010|0|00|stairs|
+~019|02|015|029|0|00|ascend|upward|above|up|u|
+~019|03|015|043|0|00|east|e|
+~019|04|028|045|3|11|north|n|
+~019|05|028|036|3|11|left|
+~019|06|029|046|3|11|south|s|
+~019|07|029|037|3|11|right|
+~019|08|030|044|3|11|west|w|
+~019|09|030|007|3|11|forward|onward|
+~019|10|032|045|0|00|north|n|
+~019|11|074|049|0|35|sw|
+~019|12|032|049|2|11|sw|
+~019|13|074|066|0|00|secret|
+#020|You are the the bottom of the pit with a broken neck.
+!020|locCondTbl|FORCED_MOVE|
+~020|01|000|001|0|00|Movement Not Allowed|
+#021|You didn't make it.
+!021|locCondTbl|FORCED_MOVE|
+~021|01|000|001|0|00|Movement Not Allowed|
+#022|The dome is unclimbable.
+!022|locCondTbl|FORCED_MOVE|
+~022|01|015|001|0|00|Movement Not Allowed|
+#023|You're at west end of twopit room.
+!023|objLocTbl|25|023|067|Fixed  |PLANT2|
+!023|locCondTbl|DARK|
+~023|01|067|043|0|00|east|e|
+~023|02|067|042|0|00|across|
+~023|03|068|044|0|00|west|w|
+~023|04|068|061|0|00|slab|
+~023|05|025|030|0|00|downward|descend|down|d|
+~023|06|025|031|0|00|pit|
+~023|07|648|052|0|00|hole|
+#024|You're in east pit.
+!024|locCondTbl|DARK|LIQUID|OIL|
+~024|01|067|029|0|00|ascend|upward|above|up|u|
+~024|02|067|011|0|00|outside|leave|exit|out|
+#025|You're in west pit.
+!025|objLocTbl|24|025|-01|Fixed  |PLANT|
+!025|locCondTbl|DARK|
+~025|01|023|029|0|00|ascend|upward|above|up|u|
+~025|02|023|011|0|00|outside|leave|exit|out|
+~025|03|031|056|7|24|climb|
+~025|04|026|056|0|00|climb|
+#026|You clamber up the plant and scurry through the hole at the top.
+!026|locCondTbl|FORCED_MOVE|
+~026|01|088|001|0|00|Movement Not Allowed|
+#027|You are on the west side of the fissure in the hall of mists.
+!027|objLocTbl|12|017|027|Fixed  |FISSURE|
+!027|objLocTbl|51|027|000|Movable|DIAMONDS|
+!027|locCondTbl|DARK|
+~027|01|596|039|3|12|jump|
+~027|02|021|007|4|12|forward|onward|
+~027|03|597|041|4|12|over|
+~027|04|597|042|4|12|across|
+~027|05|597|043|4|12|east|e|
+~027|06|597|069|4|12|cross|
+~027|07|017|041|0|00|over|
+~027|08|040|045|0|00|north|n|
+~027|09|041|044|0|00|west|w|
+#028|an E/W passage.
+!028|objLocTbl|52|028|000|Movable|SILVER|
+!028|locCondTbl|DARK|
+~028|01|019|038|0|00|hall|
+~028|02|019|011|0|00|outside|leave|exit|out|
+~028|03|019|046|0|00|south|s|
+~028|04|033|045|0|00|north|n|
+~028|05|033|055|0|00|y2|
+~028|06|036|030|0|00|downward|descend|down|d|
+~028|07|036|052|0|00|hole|
+#029|You are in the south side chamber.
+!029|objLocTbl|53|029|000|Movable|JEWELS|
+!029|locCondTbl|DARK|
+~029|01|019|038|0|00|hall|
+~029|02|019|011|0|00|outside|leave|exit|out|
+~029|03|019|045|0|00|north|n|
+#030|continues west and up here.
+!030|objLocTbl|54|030|000|Movable|COINS|
+!030|locCondTbl|DARK|
+~030|01|019|038|0|00|hall|
+~030|02|019|011|0|00|outside|leave|exit|out|
+~030|03|019|043|0|00|east|e|
+~030|04|062|044|0|00|west|w|
+~030|05|062|029|0|00|ascend|upward|above|up|u|
+#031|>$<
+!031|locCondTbl|FORCED_MOVE|
+~031|01|089|001|5|24|Movement Not Allowed|
+~031|02|090|001|0|00|Movement Not Allowed|
+#032|You can't get by the snake.
+!032|locCondTbl|FORCED_MOVE|
+~032|01|019|001|0|00|Movement Not Allowed|
+#033|You're at "Y2".
+!033|locCondTbl|DARK|
+~033|01|003|065|0|00|plugh|
+~033|02|028|046|0|00|south|s|
+~033|03|034|043|0|00|east|e|
+~033|04|034|053|0|00|wall|
+~033|05|034|054|0|00|broken|
+~033|06|035|044|0|00|west|w|
+~033|07|302|071|1|59|plover|
+~033|08|100|071|0|00|plover|
+#034|You are in a jumble of rock, with cracks everywhere.
+!034|locCondTbl|DARK|
+~034|01|033|030|0|00|downward|descend|down|d|
+~034|02|033|055|0|00|y2|
+~034|03|015|029|0|00|ascend|upward|above|up|u|
+#035|You're at window on pit.
+!035|objLocTbl|27|035|110|Fixed  |FIGURE|
+!035|locCondTbl|DARK|
+~035|01|033|043|0|00|east|e|
+~035|02|033|055|0|00|y2|
+~035|03|020|039|0|00|jump|
+#036|You're in dirty passage.
+!036|locCondTbl|DARK|
+~036|01|037|043|0|00|east|e|
+~036|02|037|017|0|00|crawl|
+~036|03|028|029|0|00|ascend|upward|above|up|u|
+~036|04|028|052|0|00|hole|
+~036|05|039|044|0|00|west|w|
+~036|06|065|070|0|00|bedquilt|
+#037|You are on the brink of a small clean climbable pit.  A crawl leads west.
+!037|locCondTbl|DARK|
+~037|01|036|044|0|00|west|w|
+~037|02|036|017|0|00|crawl|
+~037|03|038|030|0|00|downward|descend|down|d|
+~037|04|038|031|0|00|pit|
+~037|05|038|056|0|00|climb|
+#038|exits through tiny slits.
+!038|locCondTbl|DARK|LIQUID|
+~038|01|037|056|0|00|climb|
+~038|02|037|029|0|00|ascend|upward|above|up|u|
+~038|03|037|011|0|00|outside|leave|exit|out|
+~038|04|595|060|0|00|slit|
+~038|05|595|014|0|00|stream|
+~038|06|595|030|0|00|downward|descend|down|d|
+~038|07|595|004|0|00|downstream|
+~038|08|595|005|0|00|upstream|
+#039|You're in dusty rock room.
+!039|locCondTbl|DARK|
+~039|01|036|043|0|00|east|e|
+~039|02|036|023|0|00|passage|tunnel|
+~039|03|064|030|0|00|downward|descend|down|d|
+~039|04|064|052|0|00|hole|
+~039|05|064|058|0|00|floor|
+~039|06|065|070|0|00|bedquilt|
+#040|hall of mists.
+!040|locCondTbl|FORCED_MOVE|
+~040|01|041|001|0|00|Movement Not Allowed|
+#041|You're at west end of hall of mists.
+!041|locCondTbl|DARK|
+~041|01|042|046|0|00|south|s|
+~041|02|042|029|0|00|ascend|upward|above|up|u|
+~041|03|042|023|0|00|passage|tunnel|
+~041|04|042|056|0|00|climb|
+~041|05|027|043|0|00|east|e|
+~041|06|059|045|0|00|north|n|
+~041|07|060|044|0|00|west|w|
+~041|08|060|017|0|00|crawl|
+#042|You are in a maze of twisty little passages, all alike.
+!042|locCondTbl|DARK|HINTM|
+~042|01|041|029|0|00|ascend|upward|above|up|u|
+~042|02|042|045|0|00|north|n|
+~042|03|043|043|0|00|east|e|
+~042|04|045|046|0|00|south|s|
+~042|05|080|044|0|00|west|w|
+#043|You are in a maze of twisty little passages, all alike.
+!043|locCondTbl|DARK|HINTM|
+~043|01|042|044|0|00|west|w|
+~043|02|044|046|0|00|south|s|
+~043|03|045|043|0|00|east|e|
+#044|You are in a maze of twisty little passages, all alike.
+!044|locCondTbl|DARK|HINTM|
+~044|01|043|043|0|00|east|e|
+~044|02|048|030|0|00|downward|descend|down|d|
+~044|03|050|046|0|00|south|s|
+~044|04|082|045|0|00|north|n|
+#045|You are in a maze of twisty little passages, all alike.
+!045|locCondTbl|DARK|HINTM|
+~045|01|042|044|0|00|west|w|
+~045|02|043|045|0|00|north|n|
+~045|03|046|043|0|00|east|e|
+~045|04|047|046|0|00|south|s|
+~045|05|087|029|0|00|ascend|upward|above|up|u|
+~045|06|087|030|0|00|downward|descend|down|d|
+#046|Dead end.
+!046|locCondTbl|DARK|HINTM|NOPIRAT|
+~046|01|045|044|0|00|west|w|
+~046|02|045|011|0|00|outside|leave|exit|out|
+#047|Dead end.
+!047|locCondTbl|DARK|HINTM|NOPIRAT|
+~047|01|045|043|0|00|east|e|
+~047|02|045|011|0|00|outside|leave|exit|out|
+#048|Dead end.
+!048|locCondTbl|DARK|HINTM|NOPIRAT|
+~048|01|044|029|0|00|ascend|upward|above|up|u|
+~048|02|044|011|0|00|outside|leave|exit|out|
+#049|You are in a maze of twisty little passages, all alike.
+!049|locCondTbl|DARK|HINTM|
+~049|01|050|043|0|00|east|e|
+~049|02|051|044|0|00|west|w|
+#050|You are in a maze of twisty little passages, all alike.
+!050|locCondTbl|DARK|HINTM|
+~050|01|044|043|0|00|east|e|
+~050|02|049|044|0|00|west|w|
+~050|03|051|030|0|00|downward|descend|down|d|
+~050|04|052|046|0|00|south|s|
+#051|You are in a maze of twisty little passages, all alike.
+!051|locCondTbl|DARK|HINTM|
+~051|01|049|044|0|00|west|w|
+~051|02|050|029|0|00|ascend|upward|above|up|u|
+~051|03|052|043|0|00|east|e|
+~051|04|053|046|0|00|south|s|
+#052|You are in a maze of twisty little passages, all alike.
+!052|locCondTbl|DARK|HINTM|
+~052|01|050|044|0|00|west|w|
+~052|02|051|043|0|00|east|e|
+~052|03|052|046|0|00|south|s|
+~052|04|053|029|0|00|ascend|upward|above|up|u|
+~052|05|055|045|0|00|north|n|
+~052|06|086|030|0|00|downward|descend|down|d|
+#053|You are in a maze of twisty little passages, all alike.
+!053|locCondTbl|DARK|HINTM|NOPIRAT|
+~053|01|051|044|0|00|west|w|
+~053|02|052|045|0|00|north|n|
+~053|03|054|046|0|00|south|s|
+#054|Dead end.
+!054|locCondTbl|DARK|HINTM|
+~054|01|053|044|0|00|west|w|
+~054|02|053|011|0|00|outside|leave|exit|out|
+#055|You are in a maze of twisty little passages, all alike.
+!055|locCondTbl|DARK|HINTM|NOPIRAT|
+~055|01|052|044|0|00|west|w|
+~055|02|055|045|0|00|north|n|
+~055|03|056|030|0|00|downward|descend|down|d|
+~055|04|057|043|0|00|east|e|
+#056|Dead end.
+!056|locCondTbl|DARK|
+~056|01|055|029|0|00|ascend|upward|above|up|u|
+~056|02|055|011|0|00|outside|leave|exit|out|
+#057|You're at brink of pit.
+!057|locCondTbl|DARK|NOPIRAT|
+~057|01|013|030|0|00|downward|descend|down|d|
+~057|02|013|056|0|00|climb|
+~057|03|055|044|0|00|west|w|
+~057|04|058|046|0|00|south|s|
+~057|05|083|045|0|00|north|n|
+~057|06|084|043|0|00|east|e|
+#058|Dead end.
+!058|locCondTbl|DARK|
+~058|01|057|043|0|00|east|e|
+~058|02|057|011|0|00|outside|leave|exit|out|
+#059|hall of mists.
+!059|locCondTbl|FORCED_MOVE|
+~059|01|027|001|0|00|Movement Not Allowed|
+#060|You're at east end of long hall.
+!060|locCondTbl|DARK|
+~060|01|041|043|0|00|east|e|
+~060|02|041|029|0|00|ascend|upward|above|up|u|
+~060|03|041|017|0|00|crawl|
+~060|04|061|044|0|00|west|w|
+~060|05|062|045|0|00|north|n|
+~060|06|062|030|0|00|downward|descend|down|d|
+~060|07|062|052|0|00|hole|
+#061|You're at west end of long hall.
+!061|locCondTbl|DARK|
+~061|01|060|043|0|00|east|e|
+~061|02|062|045|0|00|north|n|
+~061|03|107|046|1|00|south|s|
+#062|You are at a crossover of a high N/S passage and a low E/W one.
+!062|locCondTbl|DARK|
+~062|01|060|044|0|00|west|w|
+~062|02|063|045|0|00|north|n|
+~062|03|030|043|0|00|east|e|
+~062|04|061|046|0|00|south|s|
+#063|Dead end.
+!063|locCondTbl|DARK|
+~063|01|062|046|0|00|south|s|
+~063|02|062|011|0|00|outside|leave|exit|out|
+#064|You're at complex junction.
+!064|locCondTbl|DARK|
+~064|01|039|029|0|00|ascend|upward|above|up|u|
+~064|02|039|056|0|00|climb|
+~064|03|039|059|0|00|room|
+~064|04|065|044|0|00|west|w|
+~064|05|065|070|0|00|bedquilt|
+~064|06|103|045|0|00|north|n|
+~064|07|103|074|0|00|shell|
+~064|08|106|043|0|00|east|e|
+#065|explore at random select north, south, up or down.
+!065|locCondTbl|DARK|
+~065|01|064|043|0|00|east|e|
+~065|02|066|044|0|00|west|w|
+~065|03|588|046|0|80|south|s|
+~065|04|068|061|0|00|slab|
+~065|05|588|029|0|80|ascend|upward|above|up|u|
+~065|06|070|029|0|50|ascend|upward|above|up|u|
+~065|07|039|029|0|00|ascend|upward|above|up|u|
+~065|08|588|045|0|60|north|n|
+~065|09|072|045|0|75|north|n|
+~065|10|071|045|0|00|north|n|
+~065|11|588|030|0|80|downward|descend|down|d|
+~065|12|106|030|0|00|downward|descend|down|d|
+#066|You're in swiss cheese room.
+!066|locCondTbl|DARK|
+~066|01|065|047|0|00|ne|
+~066|02|067|044|0|00|west|w|
+~066|03|588|046|0|80|south|s|
+~066|04|077|025|0|00|canyon|
+~066|05|096|043|0|00|east|e|
+~066|06|588|050|0|50|nw|
+~066|07|097|072|0|00|oriental|
+#067|You're at east end of twopit room.
+!067|objLocTbl|25|023|067|Fixed  |PLANT2|
+!067|locCondTbl|DARK|
+~067|01|066|043|0|00|east|e|
+~067|02|023|044|0|00|west|w|
+~067|03|023|042|0|00|across|
+~067|04|024|030|0|00|downward|descend|down|d|
+~067|05|024|031|0|00|pit|
+#068|You're in slab room.
+!068|locCondTbl|DARK|
+~068|01|023|046|0|00|south|s|
+~068|02|069|029|0|00|ascend|upward|above|up|u|
+~068|03|069|056|0|00|climb|
+~068|04|065|045|0|00|north|n|
+#069|You are in a secret N/S canyon above a large room.
+!069|locCondTbl|DARK|
+~069|01|068|030|0|00|downward|descend|down|d|
+~069|02|068|061|0|00|slab|
+~069|03|120|046|3|31|south|s|
+~069|04|119|046|0|00|south|s|
+~069|05|109|045|0|00|north|n|
+~069|06|113|075|0|00|reservoir|
+#070|You are in a secret N/S canyon above a sizable passage.
+!070|locCondTbl|DARK|
+~070|01|071|045|0|00|north|n|
+~070|02|065|030|0|00|downward|descend|down|d|
+~070|03|065|023|0|00|passage|tunnel|
+~070|04|111|046|0|00|south|s|
+#071|You're at junction of three secret canyons.
+!071|locCondTbl|DARK|
+~071|01|065|048|0|00|se|
+~071|02|070|046|0|00|south|s|
+~071|03|110|045|0|00|north|n|
+#072|You are in a large low room.  Crawls lead north, se, and sw.
+!072|locCondTbl|DARK|
+~072|01|065|070|0|00|bedquilt|
+~072|02|118|049|0|00|sw|
+~072|03|073|045|0|00|north|n|
+~072|04|097|048|0|00|se|
+~072|05|097|072|0|00|oriental|
+#073|Dead end crawl.
+!073|locCondTbl|DARK|
+~073|01|072|046|0|00|south|s|
+~073|02|072|017|0|00|crawl|
+~073|03|072|011|0|00|outside|leave|exit|out|
+#074|You're at secret E/W canyon above tight canyon.
+!074|locCondTbl|DARK|
+~074|01|019|043|0|00|east|e|
+~074|02|120|044|3|31|west|w|
+~074|03|121|044|0|00|west|w|
+~074|04|075|030|0|00|downward|descend|down|d|
+#075|You are at a wide place in a very tight N/S canyon.
+!075|locCondTbl|DARK|
+~075|01|076|046|0|00|south|s|
+~075|02|077|045|0|00|north|n|
+#076|The canyon here becomes too tight to go further south.
+!076|locCondTbl|DARK|
+~076|01|075|045|0|00|north|n|
+#077|to open up.
+!077|locCondTbl|DARK|
+~077|01|075|043|0|00|east|e|
+~077|02|078|044|0|00|west|w|
+~077|03|066|045|0|00|north|n|
+~077|04|066|017|0|00|crawl|
+#078|The canyon runs into a mass of boulders -- dead end.
+!078|locCondTbl|DARK|
+~078|01|077|046|0|00|south|s|
+#079|be advisable to use the exit.
+!079|locCondTbl|OIL|LIGHT|
+~079|01|003|001|0|00|Movement Not Allowed|
+#080|You are in a maze of twisty little passages, all alike.
+!080|locCondTbl|DARK|HINTM|
+~080|01|042|045|0|00|north|n|
+~080|02|080|044|0|00|west|w|
+~080|03|080|046|0|00|south|s|
+~080|04|081|043|0|00|east|e|
+#081|Dead end.
+!081|locCondTbl|DARK|HINTM|
+~081|01|080|044|0|00|west|w|
+~081|02|080|011|0|00|outside|leave|exit|out|
+#082|Dead end.
+!082|locCondTbl|DARK|HINTM|NOPIRAT|
+~082|01|044|046|0|00|south|s|
+~082|02|044|011|0|00|outside|leave|exit|out|
+#083|You are in a maze of twisty little passages, all alike.
+!083|locCondTbl|DARK|
+~083|01|057|046|0|00|south|s|
+~083|02|084|043|0|00|east|e|
+~083|03|085|044|0|00|west|w|
+#084|You are in a maze of twisty little passages, all alike.
+!084|locCondTbl|DARK|
+~084|01|057|045|0|00|north|n|
+~084|02|083|044|0|00|west|w|
+~084|03|114|050|0|00|nw|
+#085|Dead end.
+!085|locCondTbl|DARK|NOPIRAT|
+~085|01|083|043|0|00|east|e|
+~085|02|083|011|0|00|outside|leave|exit|out|
+#086|Dead end.
+!086|locCondTbl|DARK|HINTM|NOPIRAT|
+~086|01|052|029|0|00|ascend|upward|above|up|u|
+~086|02|052|011|0|00|outside|leave|exit|out|
+#087|You are in a maze of twisty little passages, all alike.
+!087|locCondTbl|DARK|HINTM|
+~087|01|045|029|0|00|ascend|upward|above|up|u|
+~087|02|045|030|0|00|downward|descend|down|d|
+#088|You're in narrow corridor.
+!088|locCondTbl|DARK|
+~088|01|025|030|0|00|downward|descend|down|d|
+~088|02|025|056|0|00|climb|
+~088|03|025|043|0|00|east|e|
+~088|04|020|039|0|00|jump|
+~088|05|092|044|0|00|west|w|
+~088|06|092|027|0|00|giant|
+#089|There is nothing here to climb.  Use "up" or "out" to leave the pit.
+!089|locCondTbl|FORCED_MOVE|
+~089|01|025|001|0|00|Movement Not Allowed|
+#090|You have climbed up the plant and out of the pit.
+!090|locCondTbl|FORCED_MOVE|
+~090|01|023|001|0|00|Movement Not Allowed|
+#091|You're at steep incline above large room.
+!091|locCondTbl|DARK|
+~091|01|095|045|0|00|north|n|
+~091|02|095|073|0|00|cavern|
+~091|03|095|023|0|00|passage|tunnel|
+~091|04|072|030|0|00|downward|descend|down|d|
+~091|05|072|056|0|00|climb|
+#092|You're in giant room.
+!092|objLocTbl|56|092|000|Movable|EGGS|
+!092|locCondTbl|DARK|
+~092|01|088|046|0|00|south|s|
+~092|02|093|043|0|00|east|e|
+~092|03|094|045|0|00|north|n|
+#093|The passage here is blocked by a recent cave-in.
+!093|locCondTbl|DARK|
+~093|01|092|046|0|00|south|s|
+~093|02|092|027|0|00|giant|
+~093|03|092|011|0|00|outside|leave|exit|out|
+#094|You are at one end of an immense north/south passage.
+!094|objLocTbl|09|094|-01|Fixed  |DOOR|
+!094|locCondTbl|DARK|
+~094|01|092|046|0|00|south|s|
+~094|02|092|027|0|00|giant|
+~094|03|092|023|0|00|passage|tunnel|
+~094|04|095|045|3|09|north|n|
+~094|05|095|003|3|09|enter|
+~094|06|095|073|3|09|cavern|
+~094|07|611|045|0|00|north|n|
+#095|You're in cavern with waterfall.
+!095|objLocTbl|57|095|000|Movable|TRIDENT|
+!095|locCondTbl|DARK|LIQUID|
+~095|01|094|046|0|00|south|s|
+~095|02|094|011|0|00|outside|leave|exit|out|
+~095|03|092|027|0|00|giant|
+~095|04|091|044|0|00|west|w|
+#096|You're in soft room.
+!096|objLocTbl|10|096|000|Movable|PILLOW|
+!096|objLocTbl|40|096|-01|Fixed  |CARPET|
+!096|locCondTbl|DARK|
+~096|01|066|044|0|00|west|w|
+~096|02|066|011|0|00|outside|leave|exit|out|
+#097|You're in oriental room.
+!097|objLocTbl|29|097|-01|Fixed  |DRAWING|
+!097|objLocTbl|58|097|000|Movable|VASE|
+!097|locCondTbl|DARK|
+~097|01|066|048|0|00|se|
+~097|02|072|044|0|00|west|w|
+~097|03|072|017|0|00|crawl|
+~097|04|098|029|0|00|ascend|upward|above|up|u|
+~097|05|098|045|0|00|north|n|
+~097|06|098|073|0|00|cavern|
+#098|You're in misty cavern.
+!098|locCondTbl|DARK|
+~098|01|097|046|0|00|south|s|
+~098|02|097|072|0|00|oriental|
+~098|03|099|044|0|00|west|w|
+#099|You're in alcove.
+!099|locCondTbl|DARK|HINTP|
+~099|01|098|050|0|00|nw|
+~099|02|098|073|0|00|cavern|
+~099|03|301|043|0|00|east|e|
+~099|04|301|023|0|00|passage|tunnel|
+~099|05|100|043|0|00|east|e|
+#100|You're in plover room.
+!100|objLocTbl|59|100|000|Movable|EMERALD|
+!100|locCondTbl|HINTP|LIGHT|
+~100|01|301|044|0|00|west|w|
+~100|02|301|023|0|00|passage|tunnel|
+~100|03|301|011|0|00|outside|leave|exit|out|
+~100|04|099|044|0|00|west|w|
+~100|05|302|071|1|59|plover|
+~100|06|033|071|0|00|plover|
+~100|07|101|047|0|00|ne|
+~100|08|101|022|0|00|dark|
+#101|You're in dark-room.
+!101|objLocTbl|13|101|-01|Fixed  |TABLET|
+!101|objLocTbl|60|101|000|Movable|PYRAMID|
+!101|locCondTbl|DARK|
+~101|01|100|046|0|00|south|s|
+~101|02|100|071|0|00|plover|
+~101|03|100|011|0|00|outside|leave|exit|out|
+#102|You're in arched hall.
+!102|locCondTbl|DARK|
+~102|01|103|030|0|00|downward|descend|down|d|
+~102|02|103|074|0|00|shell|
+~102|03|103|011|0|00|outside|leave|exit|out|
+#103|You're in shell room.
+!103|objLocTbl|14|103|-01|Fixed  |CLAM|
+!103|locCondTbl|DARK|
+~103|01|102|029|0|00|ascend|upward|above|up|u|
+~103|02|102|038|0|00|hall|
+~103|03|104|030|0|00|downward|descend|down|d|
+~103|04|618|046|1|14|south|s|
+~103|05|619|046|1|15|south|s|
+~103|06|064|046|0|00|south|s|
+#104|You are in a long sloping corridor with ragged sharp walls.
+!104|locCondTbl|DARK|
+~104|01|103|029|0|00|ascend|upward|above|up|u|
+~104|02|103|074|0|00|shell|
+~104|03|105|030|0|00|downward|descend|down|d|
+#105|You are in a cul-de-sac about eight feet across.
+!105|locCondTbl|DARK|
+~105|01|104|029|0|00|ascend|upward|above|up|u|
+~105|02|104|011|0|00|outside|leave|exit|out|
+~105|03|103|074|0|00|shell|
+#106|You're in anteroom.
+!106|objLocTbl|16|106|000|Movable|MAGAZINE|
+!106|locCondTbl|DARK|
+~106|01|064|029|0|00|ascend|upward|above|up|u|
+~106|02|065|044|0|00|west|w|
+~106|03|108|043|0|00|east|e|
+#107|You are in a maze of twisty little passages, all different.
+!107|locCondTbl|DARK|
+~107|01|131|046|0|00|south|s|
+~107|02|132|049|0|00|sw|
+~107|03|133|047|0|00|ne|
+~107|04|134|048|0|00|se|
+~107|05|135|029|0|00|ascend|upward|above|up|u|
+~107|06|136|050|0|00|nw|
+~107|07|137|043|0|00|east|e|
+~107|08|138|044|0|00|west|w|
+~107|09|139|045|0|00|north|n|
+~107|10|061|030|0|00|downward|descend|down|d|
+#108|You're at Witt's end.
+!108|locCondTbl|DARK|HINTW|
+~108|01|588|043|0|95|east|e|
+~108|02|588|045|0|95|north|n|
+~108|03|588|046|0|95|south|s|
+~108|04|588|047|0|95|ne|
+~108|05|588|048|0|95|se|
+~108|06|588|049|0|95|sw|
+~108|07|588|050|0|95|nw|
+~108|08|588|029|0|95|ascend|upward|above|up|u|
+~108|09|588|030|0|95|downward|descend|down|d|
+~108|10|106|043|0|00|east|e|
+~108|11|626|044|0|00|west|w|
+#109|You're in mirror canyon.
+!109|objLocTbl|23|109|-01|Fixed  |MIRROR|
+!109|locCondTbl|DARK|
+~109|01|069|046|0|00|south|s|
+~109|02|113|045|0|00|north|n|
+~109|03|113|075|0|00|reservoir|
+#110|You're at window on pit.
+!110|objLocTbl|27|035|110|Fixed  |FIGURE|
+!110|locCondTbl|DARK|
+~110|01|071|044|0|00|west|w|
+~110|02|020|039|0|00|jump|
+#111|You're at top of stalactite.
+!111|objLocTbl|26|111|-01|Fixed  |STALACTITE|
+!111|locCondTbl|DARK|
+~111|01|070|045|0|00|north|n|
+~111|02|050|030|0|40|downward|descend|down|d|
+~111|03|050|039|0|40|jump|
+~111|04|050|056|0|40|climb|
+~111|05|053|030|0|50|downward|descend|down|d|
+~111|06|045|030|0|00|downward|descend|down|d|
+#112|You are in a little maze of twisting passages, all different.
+!112|locCondTbl|DARK|
+~112|01|131|049|0|00|sw|
+~112|02|132|045|0|00|north|n|
+~112|03|133|043|0|00|east|e|
+~112|04|134|050|0|00|nw|
+~112|05|135|048|0|00|se|
+~112|06|136|047|0|00|ne|
+~112|07|137|044|0|00|west|w|
+~112|08|138|030|0|00|downward|descend|down|d|
+~112|09|139|029|0|00|ascend|upward|above|up|u|
+~112|10|140|046|0|00|south|s|
+#113|You're at reservoir.
+!113|locCondTbl|DARK|LIQUID|
+~113|01|109|046|0|00|south|s|
+~113|02|109|011|0|00|outside|leave|exit|out|
+#114|Dead end.
+!114|locCondTbl|DARK|
+~114|01|084|048|0|00|se|
+#115|You're at ne end of repository.
+!115|locCondTbl|LIGHT|
+~115|01|116|049|0|00|sw|
+~115|02|143|076|0|50|main|office|
+~115|03|630|076|0|00|main|office|sw
+#116|You're at sw end of repository.
+!116|locCondTbl|LIGHT|
+~116|01|115|047|0|00|ne|
+~116|02|593|030|0|00|downward|descend|down|d|
+~116|03|143|076|0|50|main|office|
+~116|04|630|076|0|00|main|office|
+#117|You're on sw side of chasm.
+!117|objLocTbl|32|117|122|Fixed  |CHASM|
+!117|objLocTbl|33|117|122|Fixed  |TROLL|
+!117|locCondTbl|DARK|
+~117|01|118|049|0|00|sw|
+~117|02|660|041|2|33|over|
+~117|03|660|042|2|33|across|
+~117|04|660|069|2|33|cross|
+~117|05|660|047|2|33|ne|
+~117|06|661|041|3|32|over|
+~117|07|303|041|0|00|over|
+~117|08|021|039|3|32|jump|
+~117|09|596|039|0|00|jump|
+#118|You're in sloping corridor.
+!118|locCondTbl|DARK|
+~118|01|072|030|0|00|downward|descend|down|d|
+~118|02|117|029|0|00|ascend|upward|above|up|u|
+#119|You are in a secret canyon which exits to the north and east.
+!119|objLocTbl|31|119|121|Fixed  |DRAGON|
+!119|objLocTbl|62|119|121|Fixed  |RUG|
+!119|locCondTbl|DARK|
+~119|01|069|045|0|00|north|n|
+~119|02|069|011|0|00|outside|leave|exit|out|
+~119|03|653|043|0|00|east|e|
+#120|You are in a secret canyon which exits to the north and east.
+!120|locCondTbl|DARK|
+~120|01|069|045|0|00|north|n|
+~120|02|074|043|0|00|east|e|
+#121|You are in a secret canyon which exits to the north and east.
+!121|objLocTbl|31|119|121|Fixed  |DRAGON|
+!121|objLocTbl|62|119|121|Fixed  |RUG|
+!121|locCondTbl|DARK|
+~121|01|074|043|0|00|east|e|
+~121|02|074|011|0|00|outside|leave|exit|out|
+~121|03|653|045|0|00|north|n|
+~121|04|653|007|0|00|forward|onward|
+#122|You're on ne side of chasm.
+!122|objLocTbl|32|117|122|Fixed  |CHASM|
+!122|objLocTbl|33|117|122|Fixed  |TROLL|
+!122|locCondTbl|DARK|NOPIRAT|
+~122|01|123|047|0|00|ne|
+~122|02|660|041|2|33|over|
+~122|03|660|042|2|33|across|
+~122|04|660|069|2|33|cross|
+~122|05|660|049|2|33|sw|
+~122|06|303|041|0|00|over|
+~122|07|596|039|0|00|jump|
+~122|08|124|077|0|00|fork|
+~122|09|126|028|0|00|view|
+~122|10|129|040|0|00|barren|
+#123|You're in corridor.
+!123|locCondTbl|DARK|NOPIRAT|
+~123|01|122|044|0|00|west|w|
+~123|02|124|043|0|00|east|e|
+~123|03|124|077|0|00|fork|
+~123|04|126|028|0|00|view|
+~123|05|129|040|0|00|barren|
+#124|You're at fork in path.
+!124|locCondTbl|DARK|NOPIRAT|
+~124|01|123|044|0|00|west|w|
+~124|02|125|047|0|00|ne|
+~124|03|125|036|0|00|left|
+~124|04|128|048|0|00|se|
+~124|05|128|037|0|00|right|
+~124|06|128|030|0|00|downward|descend|down|d|
+~124|07|126|028|0|00|view|
+~124|08|129|040|0|00|barren|
+#125|You're at junction with warm walls.
+!125|locCondTbl|DARK|NOPIRAT|
+~125|01|124|046|0|00|south|s|
+~125|02|124|077|0|00|fork|
+~125|03|126|045|0|00|north|n|
+~125|04|126|028|0|00|view|
+~125|05|127|043|0|00|east|e|
+~125|06|127|017|0|00|crawl|
+#126|You're at breath-taking view.
+!126|objLocTbl|37|126|-01|Fixed  |VOLCANO|
+!126|locCondTbl|DARK|NOPIRAT|
+~126|01|125|046|0|00|south|s|
+~126|02|125|023|0|00|passage|tunnel|
+~126|03|125|011|0|00|outside|leave|exit|out|
+~126|04|124|077|0|00|fork|
+~126|05|610|030|0|00|downward|descend|down|d|
+~126|06|610|039|0|00|jump|
+#127|You're in chamber of boulders.
+!127|objLocTbl|63|127|000|Movable|SPICES|
+!127|locCondTbl|DARK|NOPIRAT|
+~127|01|125|044|0|00|west|w|
+~127|02|125|011|0|00|outside|leave|exit|out|
+~127|03|125|017|0|00|crawl|
+~127|04|124|077|0|00|fork|
+~127|05|126|028|0|00|view|
+#128|You're in limestone passage.
+!128|locCondTbl|DARK|NOPIRAT|
+~128|01|124|045|0|00|north|n|
+~128|02|124|029|0|00|ascend|upward|above|up|u|
+~128|03|124|077|0|00|fork|
+~128|04|129|046|0|00|south|s|
+~128|05|129|030|0|00|downward|descend|down|d|
+~128|06|129|040|0|00|barren|
+~128|07|126|028|0|00|view|
+#129|You're in front of barren room.
+!129|locCondTbl|DARK|NOPIRAT|
+~129|01|128|044|0|00|west|w|
+~129|02|128|029|0|00|ascend|upward|above|up|u|
+~129|03|124|077|0|00|fork|
+~129|04|130|043|0|00|east|e|
+~129|05|130|019|0|00|inside|inward|in|
+~129|06|130|040|0|00|barren|
+~129|07|130|003|0|00|enter|
+~129|08|126|028|0|00|view|
+#130|You're in barren room.
+!130|objLocTbl|35|130|-01|Fixed  |BEAR|
+!130|objLocTbl|64|130|000|Movable|CHAIN|
+!130|locCondTbl|DARK|NOPIRAT|
+~130|01|129|044|0|00|west|w|
+~130|02|124|077|0|00|fork|
+~130|03|126|028|0|00|view|
+#131|You are in a maze of twisting little passages, all different.
+!131|locCondTbl|DARK|
+~131|01|107|044|0|00|west|w|
+~131|02|132|048|0|00|se|
+~131|03|133|050|0|00|nw|
+~131|04|134|049|0|00|sw|
+~131|05|135|047|0|00|ne|
+~131|06|136|029|0|00|ascend|upward|above|up|u|
+~131|07|137|030|0|00|downward|descend|down|d|
+~131|08|138|045|0|00|north|n|
+~131|09|139|046|0|00|south|s|
+~131|10|112|043|0|00|east|e|
+#132|You are in a little maze of twisty passages, all different.
+!132|locCondTbl|DARK|
+~132|01|107|050|0|00|nw|
+~132|02|131|029|0|00|ascend|upward|above|up|u|
+~132|03|133|045|0|00|north|n|
+~132|04|134|046|0|00|south|s|
+~132|05|135|044|0|00|west|w|
+~132|06|136|049|0|00|sw|
+~132|07|137|047|0|00|ne|
+~132|08|138|043|0|00|east|e|
+~132|09|139|030|0|00|downward|descend|down|d|
+~132|10|112|048|0|00|se|
+#133|You are in a twisting maze of little passages, all different.
+!133|locCondTbl|DARK|
+~133|01|107|029|0|00|ascend|upward|above|up|u|
+~133|02|131|030|0|00|downward|descend|down|d|
+~133|03|132|044|0|00|west|w|
+~133|04|134|047|0|00|ne|
+~133|05|135|049|0|00|sw|
+~133|06|136|043|0|00|east|e|
+~133|07|137|045|0|00|north|n|
+~133|08|138|050|0|00|nw|
+~133|09|139|048|0|00|se|
+~133|10|112|046|0|00|south|s|
+#134|You are in a twisting little maze of passages, all different.
+!134|locCondTbl|DARK|
+~134|01|107|047|0|00|ne|
+~134|02|131|045|0|00|north|n|
+~134|03|132|050|0|00|nw|
+~134|04|133|048|0|00|se|
+~134|05|135|043|0|00|east|e|
+~134|06|136|030|0|00|downward|descend|down|d|
+~134|07|137|046|0|00|south|s|
+~134|08|138|029|0|00|ascend|upward|above|up|u|
+~134|09|139|044|0|00|west|w|
+~134|10|112|049|0|00|sw|
+#135|You are in a twisty little maze of passages, all different.
+!135|locCondTbl|DARK|
+~135|01|107|045|0|00|north|n|
+~135|02|131|048|0|00|se|
+~135|03|132|030|0|00|downward|descend|down|d|
+~135|04|133|046|0|00|south|s|
+~135|05|134|043|0|00|east|e|
+~135|06|136|044|0|00|west|w|
+~135|07|137|049|0|00|sw|
+~135|08|138|047|0|00|ne|
+~135|09|139|050|0|00|nw|
+~135|10|112|029|0|00|ascend|upward|above|up|u|
+#136|You are in a twisty maze of little passages, all different.
+!136|locCondTbl|DARK|
+~136|01|107|043|0|00|east|e|
+~136|02|131|044|0|00|west|w|
+~136|03|132|029|0|00|ascend|upward|above|up|u|
+~136|04|133|049|0|00|sw|
+~136|05|134|030|0|00|downward|descend|down|d|
+~136|06|135|046|0|00|south|s|
+~136|07|137|050|0|00|nw|
+~136|08|138|048|0|00|se|
+~136|09|139|047|0|00|ne|
+~136|10|112|045|0|00|north|n|
+#137|You are in a little twisty maze of passages, all different.
+!137|locCondTbl|DARK|
+~137|01|107|048|0|00|se|
+~137|02|131|047|0|00|ne|
+~137|03|132|046|0|00|south|s|
+~137|04|133|030|0|00|downward|descend|down|d|
+~137|05|134|029|0|00|ascend|upward|above|up|u|
+~137|06|135|050|0|00|nw|
+~137|07|136|045|0|00|north|n|
+~137|08|138|049|0|00|sw|
+~137|09|139|043|0|00|east|e|
+~137|10|112|044|0|00|west|w|
+#138|You are in a maze of little twisting passages, all different.
+!138|locCondTbl|DARK|
+~138|01|107|030|0|00|downward|descend|down|d|
+~138|02|131|043|0|00|east|e|
+~138|03|132|047|0|00|ne|
+~138|04|133|029|0|00|ascend|upward|above|up|u|
+~138|05|134|044|0|00|west|w|
+~138|06|135|045|0|00|north|n|
+~138|07|136|046|0|00|south|s|
+~138|08|137|048|0|00|se|
+~138|09|139|049|0|00|sw|
+~138|10|112|050|0|00|nw|
+#139|You are in a maze of little twisty passages, all different.
+!139|locCondTbl|DARK|
+~139|01|107|049|0|00|sw|
+~139|02|131|050|0|00|nw|
+~139|03|132|043|0|00|east|e|
+~139|04|133|044|0|00|west|w|
+~139|05|134|045|0|00|north|n|
+~139|06|135|030|0|00|downward|descend|down|d|
+~139|07|136|048|0|00|se|
+~139|08|137|029|0|00|ascend|upward|above|up|u|
+~139|09|138|046|0|00|south|s|
+~139|10|112|047|0|00|ne|
+#140|Dead end.
+!140|objLocTbl|38|140|-01|Fixed  |VENDING|
+!140|locCondTbl||
+~140|01|112|045|0|00|north|n|
+~140|02|112|011|0|00|outside|leave|exit|out|
+#141|You're in forest.
+!141|objLocTbl|42|141|-01|Fixed  |TREE|
+!141|locCondTbl|LIGHT|NOPIRAT|
+~141|01|006|044|0|50|west|w|
+~141|02|005|044|0|50|west|w|
+~141|03|002|044|0|00|west|w|
+~141|04|142|056|0|00|climb|
+~141|05|143|076|0|00|main|office|
+#142|You are in tree house.
+!142|objLocTbl|41|142|000|Movable|MAP|
+!142|locCondTbl|LIGHT|NOPIRAT|
+~142|01|141|030|0|00|downward|descend|down|d|
+~142|02|143|076|0|30|main|office|
+#143|You are in the Main Office.
+!143|locCondTbl|LIGHT|NOPIRAT|
+~143|01|142|011|0|50|outside|leave|exit|out|
+~143|02|001|032|0|60|outdoors|
+~143|03|003|012|0|00|building|house|

@@ -1,0 +1,118 @@
+
+			Febuary 5th, 2007.
+
+	Description of AdventureCCaw1 Source For 32 bit MS-Windows Console.
+ 
+			Al Whinery of Maryland.
+
+	Credits to previous authors given in game introduction.
+
+	This is the 350-point version with optional 400 and 450 levels.
+	You must achieve the 350-point game to get the extra points.
+	There are three new locations and one new object.
+	My main goals were to make the source friendly and the game less tedious.
+
+	In the process I corrected several bugs and added many new features.
+	For a list os some of the new features type "info".
+	One of the more serious bugs I corrected was in goback().
+
+This was converted from a 1984 C source version last modified by Jerry D. Pohl.
+ I can't find the link but here is a later version:
+ http://www.ifarchive.org/if-archive/games/source/advtc2.zip
+ I compared the two versions and only found minor differences; mainly I/O.
+
+Some code (mainly hints) was also borrowed from:
+ http://www.ifarchive.org/if-archive/games/source/advos2s.zip
+
+ADVENT0.TXT                  - Cave and locationCondition table values.
+ADVENT0.DAT                  - Lightly encrypted version.
+ADVENT1.TXT                  - Long location discriptions.
+ADVENT1.DAT                  - Lightly encrypted version.
+ADVENT2.TXT                  - Short location discriptions.
+ADVENT2.DAT                  - Lightly encrypted version.
+ADVENT3.TXT                  - Long & short object description.
+ADVENT3.DAT                  - Lightly encrypted version.
+ADVENT4.TXT                  - Conversational descriptions & responses.
+ADVENT4.DAT                  - Lightly encrypted version.
+ADVENT5.TXT                  - Help for verbs.
+ADVENT5.DAT                  - Lightly encrypted version.
+
+Note: If the ADVENT*.DAT files do not exist, the program will create them.
+      The ADVENT*.TXT files are not needed for the program if the ADVENT*.DAT exist.
+      AdventureCCaw1 - Encrypt converts from ADVENT*.TXT to ADVENT*.DAT.
+      AdventureCCaw1 - Decrypt converts from ADVENT*.DAT to ADVENT*.TXT.
+
+Adventure.cpp                - Game startup, reset and exit code.
+Adventure.h                  - Protypes and defines.
+Adventure.rc                 - program Version information
+AdventureCCaw.dsp            - Microsoft VS6.0 build file.
+AdventureCCaw.dsw            - Microsoft VS6.0 work file.
+AdvMessageData.Cpp           - Loads ADVENT?.DAT file offsets.
+                             - Converts between ADVENT?.TXT and ADVENT?.DAT files.
+                             - Displays text messages from ADVENT?.DAT
+AdvMessageData.H             - Protypes and defines.
+CaveArray.Cpp                - Two dimentional array of 32 bit long integers
+                             - Each entry contains movment informtion.
+                             - read from ADVENT0.DAT
+CaveArray.h                  - Protypes and defines.
+DeathEndScore.Cpp            - Handle the end and scoring.
+Describe.Cpp                 - Describ Locations and Objects.
+DoTrPrObject.Cpp             - Handles assumed objects.
+DwarvesAndPirate.Cpp         - Handle Dwarves And Pirate stuff.
+English.Cpp                  - Interpret game player's commands.
+English.H                    - Protypes and defines.
+GameState.cpp                - Manages the game state varibles.
+GameState.h                  - Protypes and defines.
+GameStateInitialize.cpp      - Initializes the game state varibles.
+GameStateSaveRestore.cpp     - Saves and Restores the game state varibles.
+Hints.Cpp                    - Handles offering hints when needed.
+ItVerb.Cpp                   - Intransitive verbs execution
+LongIntArray.Cpp             - Long integer array class.
+LongIntArray.h               - Protypes and defines.
+MoveRequests.Cpp             - Handles Move Requests.
+PlayGameTurn.Cpp             - Analysis & execution of player's command
+RandomPercent.Cpp            - Random and Percent routines.
+RandomPercent.h              - Protypes and defines.
+resource.h                   - program Version defines
+ShortIntArray.Cpp            - Short integer array class.
+ShortIntArray.h              - Protypes and defines.
+TravelArray.Cpp              - Holds location movments for one cave location.
+TravelArray.h                - Protypes and defines.
+TravelCave.Cpp               - Handles the TravelArray and CaveArray.
+TravelCave.H                 - Protypes and defines.
+TrVerb.Cpp                   - Transitive verbs execution.
+Vocabulary.Cpp               - Lookup for words entered by the player.
+Vocabulary.h                 - Protypes and defines.
+
+	System requirments:
+	Disk space:   At least  220 KB.
+	Memory (RAM): Less than 800 KB.
+
+	Files needed in one directory to play:
+	ADVENT0.DAT
+	ADVENT1.DAT
+	ADVENT2.DAT
+	ADVENT3.DAT
+	ADVENT4.DAT
+	ADVENT5.DAT
+	AdventureCCaw1.exe
+	AdventureCCaw1_ReadMe.txt	(Don't really need this file.)
+
+	Good commands to try:
+	info
+	help
+	help help     -- this lists verbs and movements.
+	help verb     -- where verb is in the list from the help help command.
+
+Notice of good faith:
+	At time of distribution, it is my best belief that this is a non-malicious program.
+
+Disclaimer:
+	This is freeware intended for enjoyment
+	 and none of the authors
+	 shall be held responsible for any damage caused by it's use.
+
+Caution:
+	Always scan new programs for viruses and other infections.
+
+Any comments can be sent to <al underscore whinery at ya hoo dot com>.
