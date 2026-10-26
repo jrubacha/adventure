@@ -1,0 +1,562 @@
+>none low
+I don't know how to apply that word here.
+>none magazine
+I see no magazine here.
+>none main
+I don't know how to apply that word here.
+>none map
+map what?
+>none message
+I see no message here.
+>none mirror
+I see no mirror here.
+>none ne
+There is no way to go that direction.
+>none none
+I don't understand that!
+>none north
+There is no way to go that direction.
+>none nothing
+Ok.
+>none nowhere
+>none nugget
+I see no nugget here.
+>none null
+>none nw
+There is no way to go that direction.
+>none off
+Sorry, I don't know how to off none?
+>none office
+I don't know how to apply that word here.
+>none oil
+Sorry, I don't know how to oil none?
+>none on
+Sorry, I don't know how to on none?
+>none open
+Sorry, I don't know how to open none?
+>none oriental
+I don't know how to apply that word here.
+>none out
+
+You are standing at the end of a road before a small brick
+building.  Around you is a forest.  A small stream flows out
+of the building and down a gully.
+>none outdoors
+I don't know how to apply that word here.
+>none over
+I don't know how to apply that word here.
+>none oyster
+I see no oyster here.
+>none passage
+I don't know how to apply that word here.
+>none pearl
+I see no pearl here.
+>none pillow
+I see no pillow here.
+>none pirate
+I see no pirate here.
+>none pit
+I don't know how to apply that word here.
+>none plant
+I see no plant here.
+>none plant2
+What?
+>none plover
+I don't know how to apply that word here.
+>none plugh
+Nothing happens.
+>none pour
+Sorry, I don't know how to pour none?
+>none pyramid
+I see no pyramid here.
+>none read
+Sorry, I don't know how to read none?
+>none reservoir
+I don't know how to apply that word here.
+>none restore
+Ok.
+Ok.
+
+You are inside a building, a well house for a large spring.
+
+There are some keys on the ground here.
+There is a shiny brass lamp nearby.
+There is tasty food here.
+There is a bottle of water here.
+>none right
+I am unsure how you are facing.  Use compass points or
+nearby objects.
+>none rock
+I don't know how to apply that word here.
+>none rod
+I see no rod here.
+>none rod2
+What?
+>none room
+I don't know how to apply that word here.
+>none rub
+rub what?
+>none rug
+I see no rug here.
+>none say
+Okay.
+none
+>none score
+Sorry, I don't know how to score none?
+>none se
+There is no way to go that direction.
+>none secret
+I don't know how to apply that word here.
+>none shell
+I don't know how to apply that word here.
+>none silver
+I see no silver here.
+>none slab
+I don't know how to apply that word here.
+>none slit
+I don't know how to apply that word here.
+>none snake
+I see no snake here.
+>none south
+There is no way to go that direction.
+>none spices
+I see no spices here.
+>none stairs
+I don't know how to apply that word here.
+>none stalactite
+I see no stalactite here.
+>none steps
+I don't know how to apply that word here.
+>none stream
+
+The stream flows out through a pair of 1 foot diameter
+sewer pipes.  It would be advisable to use the exit.
+>none surface
+
+You are inside a building, a well house for a large spring.
+
+There are some keys on the ground here.
+There is a shiny brass lamp nearby.
+There is tasty food here.
+There is a bottle of water here.
+>none sw
+There is no way to go that direction.
+>none tablet
+I see no tablet here.
+>none take
+Sorry, I don't know how to take none?
+>none throw
+throw what?
+>none tree
+I see no tree here.
+>none trident
+I see no trident here.
+>none troll
+I see no troll here.
+>none troll2
+What?
+>none up
+There is no way to go that direction.
+>none upstream
+
+The stream flows out through a pair of 1 foot diameter
+sewer pipes.  It would be advisable to use the exit.
+>none valley
+
+You are inside a building, a well house for a large spring.
+
+There are some keys on the ground here.
+There is a shiny brass lamp nearby.
+There is tasty food here.
+There is a bottle of water here.
+>none vase
+I see no vase here.
+>none vending
+I see no vending here.
+>none view
+I don't know how to apply that word here.
+>none vocablength
+vocabulary search length is now 5.
+please use w and nw to distinguish between West and Northwest.
+Say "vocab" to switch to exact matching.
+or
+Say "vocab 4" or some number > 3 and < 20 for specfic compare length.
+>none volcano
+I see no volcano here.
+>none wake
+wake what?
+>none walk
+Where?
+>none wall
+I don't know how to apply that word here.
+>none water
+Sorry, I don't know how to water none?
+>none wave
+wave what?
+>none west
+
+You are standing at the end of a road before a small brick
+building.  Around you is a forest.  A small stream flows out
+of the building and down a gully.
+>none xyzzy
+Nothing happens.
+>none y2
+I don't know how to apply that word here.
+>allowed *hints
+I don't understand that!
+>allowed *input
+What?
+>allowed *quit
+I don't understand that!
+>allowed *reset
+What?
+>allowed *suspend
+What?
+>allowed -1
+What?
+>allowed 0
+What?
+>allowed 1
+I don't know that word.
+>allowed 2
+I don't know that word.
+>allowed 3
+I don't understand that!
+>allowed DIG
+Digging without a shovel is quite impractical.  Even with a
+shovel progress is unlikely.
+>allowed DWSET
+I don't understand that!
+>allowed HELP
+I know of places, actions, and things.  Most of my vocabulary
+describes places and is used to move you there.  To move, try
+words like forest, building, downstream, enter, east, west,
+north, south, up or down.  I know about a few special
+objects, like a black rod hidden in the cave.  These objects
+can be manipulated using some of the action words I know.
+Usually you will need to give both the object and action
+words (In either order), but sometimes I can infer the
+object from the verb alone.  Some objects also imply verbs;
+in particular, "inventory" implies "take inventory", which
+causes me to give you a list of what you're carrying.  The
+objects have side effects; for instance, the rod scares the
+bird.  Usually people having trouble moving just need
+to try a few more words.  Usually people trying unsuccessfully
+to manipulate an object are attempting something beyond their
+(or my!) capabilities and should try a completely different
+tack.  To speed the game you can sometimes move long distances
+with a single word.  For example, "building" usually gets you
+to the building from anywhere above ground except when lost
+in the forest.  Also, note that cave passages turn a lot, and
+that leaving a room to the north does not guarantee entering
+the next from the south.
+For information on how to end your adventure, etc., type "info".
+Good luck!
+>allowed INFO
+If you want to end your adventure early, say "quit".
+To suspend you adventure such that you can continue later
+say "suspend" or "pause".
+To see how well you're doing, say "score".
+To get full credit for a treasure, you must have left it
+safely in the building, though you get partial credit for
+just locating it.
+You lose points for getting killed, or for quitting,
+though the former costs you more.  There are also points
+based on how much (If any) of the cave you've managed to
+explore;  in particular, there is a large bonus just for
+getting in (to distinguish the beginners from the rest of
+the pack), and there are other ways to determine whether
+you've been through some of the more harrowing sections.
+If you think you've found all the treasures, just keep
+exploring for a while.  If nothing interesting happens,
+you haven't found them all yet.
+If something interesting DOES happen,
+it means you're getting a bonus and have an
+opportunity to garner many more points in the master's
+section.
+Should you get stuck, type "help" for some general hints.
+For more information try the following help commands.
+"help help"
+"help hints"
+"help brief"
+"help friendly"
+"help log"
+"help cp"
+"help reset"
+"help input"
+"help vocablength"
+To get help on any verb type "help" then the verb such as "help get".
+>allowed LOST
+I'm as confused as you are.
+>allowed MIST
+Mist is a white vapor, usually water.  Seen from time to time
+in caverns.  It can be found anywhere but is frequently a
+sign of a deep pit leading down to water.
+>allowed NODIE
+>allowed PISET
+What?
+>allowed SHAZAM
+Good try, but that is an old worn-out magic word.
+>allowed STOP
+I don't know the word "stop".   Use "quit" if you want to
+give up.
+>allowed SWIM
+I don't know how.
+>allowed TGRAB
+I don't understand that!
+>allowed TPORT
+What?
+>allowed TREE
+I see no tree here.
+>allowed across
+I don't know how to apply that word here.
+>allowed all
+Sorry but I don't know how.
+>allowed allowed
+What?
+>allowed autocp
+>allowed awkward
+I don't know how to apply that word here.
+>allowed axe
+I see no axe here.
+>allowed back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You are standing at the end of a road before a small brick
+building.  Around you is a forest.  A small stream flows out
+of the building and down a gully.
+>allowed barren
+I don't know how to apply that word here.
+>allowed batteries
+I see no batteries here.
+>allowed bear
+I see no bear here.
+>allowed bed
+I don't know how to apply that word here.
+>allowed bedquilt
+I don't know how to apply that word here.
+>allowed bird
+I see no bird here.
+>allowed blast
+Blasting requires dynamite.
+>allowed bottle
+I see no bottle here.
+>allowed break
+break what?
+>allowed brief
+Brief is now ON.
+I'll only describe a place in full the first time you come to it.
+Say "look" to get a full description.
+Say "brief" to get long descriptions on return visits.
+>allowed broken
+I don't know how to apply that word here.
+>allowed building
+
+You're inside building.
+
+There are some keys on the ground here.
+There is a shiny brass lamp nearby.
+There is tasty food here.
+There is a bottle of water here.
+>allowed cage
+I see no cage here.
+>allowed calm
+calm what?
+>allowed canyon
+I don't know how to apply that word here.
+>allowed carpet
+I see no carpet here.
+>allowed cave
+I don't know where the cave is, but hereabouts no stream
+can run on the surface for very long.  I would try the stream.
+>allowed cavern
+I don't know how to apply that word here.
+>allowed chain
+I see no chain here.
+>allowed chasm
+I see no chasm here.
+>allowed checkpoint
+Ok.
+>allowed chest
+I see no chest here.
+>allowed clam
+I see no clam here.
+>allowed climb
+I don't know how to apply that word here.
+>allowed cobblestone
+I don't know how to apply that word here.
+>allowed coins
+I see no coins here.
+>allowed crack
+I don't know how to apply that word here.
+>allowed crawl
+Which way?
+>allowed cross
+I don't know how to apply that word here.
+>allowed crypt
+password: >allowed damn
+Sorry you can't enter the Crypt without the password.>allowed dark
+I don't know how to apply that word here.
+>allowed debris
+I don't know how to apply that word here.
+>allowed depression
+I don't know how to apply that word here.
+>allowed describe
+Sorry, I don't know how to describe allowed?
+>allowed diamonds
+I see no diamonds here.
+>allowed dome
+I don't know how to apply that word here.
+>allowed door
+I see no door here.
+>allowed down
+There is no way to go that direction.
+>allowed downstream
+
+The stream flows out through a pair of 1 foot diameter
+sewer pipes.  It would be advisable to use the exit.
+>allowed dragon
+I see no dragon here.
+>allowed drawing
+I see no drawing here.
+>allowed drink
+Sorry, I don't know how to drink allowed?
+A little dwarf just walked around a corner, saw you,
+threw a little axe at you, which missed, cursed, and ran away.
+>allowed drop
+Sorry, I don't know how to drop allowed?
+>allowed dwarf
+I see no dwarf here.
+There is a threatening little dwarf in the room with you!
+>allowed east
+
+You're inside building.
+
+There are some keys on the ground here.
+There is a shiny brass lamp nearby.
+There is tasty food here.
+There is a bottle of water here.
+>allowed eat
+Sorry, I don't know how to eat allowed?
+>allowed eggs
+I see no eggs here.
+>allowed emerald
+I see no emerald here.
+>allowed enter
+I don't know how to apply that word here.
+>allowed entrance
+I don't know how to apply that word here.
+>allowed fee
+fee allowed doesn't work here
+>allowed feed
+feed what?
+>allowed fie
+fie allowed doesn't work here
+>allowed figure
+I see no figure here.
+>allowed fill
+Sorry, I don't know how to fill allowed?
+>allowed find
+find what?
+>allowed fissure
+I see no fissure here.
+>allowed floor
+I don't know how to apply that word here.
+>allowed foe
+foe allowed doesn't work here
+>allowed foo
+foo allowed doesn't work here
+>allowed food
+What do you want to do with the food?
+>allowed forest
+I don't know how to apply that word here.
+>allowed fork
+I don't know how to apply that word here.
+>allowed forward
+I am unsure how you are facing.  Use compass points or
+nearby objects.
+>allowed friendly
+>allowed fum
+fum allowed doesn't work here
+>allowed giant
+I don't know how to apply that word here.
+>allowed grate
+>allowed gully
+I don't know how to apply that word here.
+>allowed hall
+I don't know how to apply that word here.
+>allowed hill
+I don't know how to apply that word here.
+>allowed hole
+I don't know how to apply that word here.
+>allowed hours
+The wizard has declared the cave to be open 24/7 untill further notice.
+>allowed in
+I don't know in from out here.  Use compass points or name
+something in the general direction you want to go.
+>allowed inventory
+Sorry, I don't know how to inventory allowed?
+>allowed jewels
+I see no jewels here.
+>allowed jump
+I don't know how to apply that word here.
+>allowed keys
+What do you want to do with the keys?
+>allowed kill
+Sorry, I don't know how to kill allowed?
+>allowed knife
+I see no knife here.
+>allowed lamp
+What do you want to do with the lamp?
+>allowed left
+I am unsure how you are facing.  Use compass points or
+nearby objects.
+>allowed lock
+Sorry, I don't know how to lock allowed?
+>allowed log
+>log north
+I see no north here.
+>log nothing
+bad grammar...
+>log nowhere
+I see no nowhere here.
+>log nugget
+I see no nugget here.
+>log null
+I see no null here.
+>log nw
+I see no nw here.
+>log off
+bad grammar...
+>log office
+I see no office here.
+>log oil
+I see no oil here.
+>log on
+bad grammar...
+>log open
+bad grammar...
+>log oriental
+I see no oriental here.
+>log out
+I see no out here.
+>log outdoors
+I see no outdoors here.
+>log over
+I see no over here.
+>log oyster
+I see no oyster here.
+>log passage
+I see no passage here.
+>log pearl
+I see no pearl here.
+>log pillow
+I see no pillow here.
+>log pirate
+I see no pirate here.
+>log pit
+I see no pit here.
+>log plant
+I see no plant here.
+>log plant2

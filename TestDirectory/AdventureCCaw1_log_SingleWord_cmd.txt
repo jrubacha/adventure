@@ -1,0 +1,294 @@
+
+
+
+		Welcome to ADVENTURE!
+
+
+	Original development by Willie Crowther.
+	Major features added by Don Woods.
+	Conversion to BDS  C by J. R. Jaeger
+	Unix standardization by Jerry D. Pohl.
+
+	Conversion to MS VS6.0 C/C++ by Al Whinery of Maryland.
+	Borrowed some code from the John W. Kennedy conversion.
+	Added features to make the game more friendly.
+	Tried to make the code more friendly.
+
+		Would you like instructions?
+
+(y) or n : y or n : (y) : >y               Answer to the intro question.
+
+
+Somewhere nearby is Colossal Cave, where others have
+found fortunes in treasure and gold, though it is rumored
+that some who enter are never seen again.
+Magic is said to work in the cave.
+Some have even found a Treasure map.
+I will be your eyes and hands.
+Direct me with commands of 1 or 2 words.
+Should you get stuck, type "help" for some general hints.
+For information on how to end your adventure, etc.,
+type "info".)
+
+
+You are standing at the end of a road before a small brick
+building.  Around you is a forest.  A small stream flows out
+of the building and down a gully.
+>
+>#               Any non empty line which doesn't start with a letter is a comment
+>!               This script tests all one word commands
+>hints 0         Turn hints off
+>-1
+>0
+>1
+>2
+>3
+>damn
+Watch it!
+>none
+I don't know that word.
+>allowed
+I don't understand that!
+>hill
+
+You have walked up a hill, still in the forest.  The road
+slopes back down the other side of the hill.  There is a
+building in the distance.
+>enter
+I don't know how to apply that word here.
+>downstream
+I don't know how to apply that word here.
+>upstream
+I don't know how to apply that word here.
+>forest
+
+You are in open forest, with a deep valley to one side.
+>forward
+
+You're in forest.
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in forest.
+>valley
+
+You are in a valley in the forest beside a stream tumbling
+along a rocky bed.
+>stairs
+I don't know how to apply that word here.
+>out
+I don't know in from out here.  Use compass points or name
+something in the general direction you want to go.
+>building
+
+You're at end of road again.
+>gully
+
+You're in valley.
+>stream
+I don't know how to apply that word here.
+>rock
+I don't know how to apply that word here.
+>bed
+I don't know how to apply that word here.
+>crawl
+Which way?
+>cobblestone
+I don't know how to apply that word here.
+>in
+I don't know in from out here.  Use compass points or name
+something in the general direction you want to go.
+>surface
+I don't know how to apply that word here.
+>nowhere
+>dark
+I don't know how to apply that word here.
+>passage
+I don't know how to apply that word here.
+>low
+I don't know how to apply that word here.
+>canyon
+I don't know how to apply that word here.
+>awkward
+I don't know how to apply that word here.
+>giant
+I don't know how to apply that word here.
+>view
+I don't know how to apply that word here.
+>up
+
+You're in forest.
+>down
+
+You're in valley.
+>pit
+I don't know how to apply that word here.
+>outdoors
+I don't know how to apply that word here.
+>crack
+I don't know how to apply that word here.
+>steps
+I don't know how to apply that word here.
+>dome
+I don't know how to apply that word here.
+>left
+I am unsure how you are facing.  Use compass points or
+nearby objects.
+>right
+I am unsure how you are facing.  Use compass points or
+nearby objects.
+>hall
+I don't know how to apply that word here.
+>jump
+I don't know how to apply that word here.
+>barren
+I don't know how to apply that word here.
+>over
+I don't know how to apply that word here.
+>across
+I don't know how to apply that word here.
+>east
+
+You're in forest.
+>west
+
+You're in forest.
+>north
+
+You are in open forest near both a valley and a road.
+>south
+
+You're in forest.
+>ne
+There is no way to go that direction.
+>se
+There is no way to go that direction.
+>sw
+There is no way to go that direction.
+>nw
+
+You're in forest.
+>debris
+I don't know how to apply that word here.
+>hole
+I don't know how to apply that word here.
+>wall
+I don't know how to apply that word here.
+>broken
+I don't know how to apply that word here.
+>y2
+I don't know how to apply that word here.
+>climb
+I don't know how to apply that word here.
+>floor
+I don't know how to apply that word here.
+>room
+I don't know how to apply that word here.
+>slit
+I don't know how to apply that word here.
+>slab
+I don't know how to apply that word here.
+>xyzzy
+Nothing happens.
+>depression
+I don't know how to apply that word here.
+>entrance
+I don't know how to apply that word here.
+>plugh
+Nothing happens.
+>secret
+I don't know how to apply that word here.
+>cave
+I don't know where the cave is, but hereabouts no stream
+can run on the surface for very long.  I would try the stream.
+>cross
+I don't know how to apply that word here.
+>bedquilt
+I don't know how to apply that word here.
+>plover
+I don't know how to apply that word here.
+>oriental
+I don't know how to apply that word here.
+>cavern
+I don't know how to apply that word here.
+>shell
+I don't know how to apply that word here.
+>reservoir
+I don't know how to apply that word here.
+>office
+I don't know how to apply that word here.
+>main
+I don't know how to apply that word here.
+>fork
+I don't know how to apply that word here.
+>null
+>take
+take what?
+>drop
+You have nothing to drop
+>say
+Okay.
+
+>open
+There is nothing here with a lock!
+>nothing
+Ok.
+>lock
+There is nothing here with a lock!
+>on
+You have no source of light.
+>off
+You have no source of light.
+>wave
+wave what?
+>calm
+calm what?
+>walk
+Where?
+>kill
+There is nothing here to attack.
+>pour
+You aren't carrying it!
+>eat
+eat what?
+>drink
+drink what?
+>rub
+rub what?
+>throw
+throw what?
+>*quit
+>find
+find what?
+>inventory
+You're not carrying anything.
+>feed
+feed what?
+>fill
+fill what?
+>blast
+Blasting requires dynamite.
+>score
+Treasures:          0
+Survival:           30
+Score:                36
+Turns:                100
+>friendly
+Friendly now ON.
+Location numbers will be displayed.
+Say "friendly" to turn OFF display option.
+>brief
+Brief is now OFF.
+I'll describe each place in full every time you come to it.
+Say "brief" to get short descriptions on return visits.
+>read
+read what?
+>break
+break what?
+>wake
+wake what?
+>*suspend
+>hours
+The wizard has declared the cave to be open 24/7 untill further notice.
+>log

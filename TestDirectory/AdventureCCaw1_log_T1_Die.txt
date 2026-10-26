@@ -1,0 +1,4572 @@
+
+
+
+		Welcome to ADVENTURE!
+
+
+	Original development by Willie Crowther.
+	Major features added by Don Woods.
+	Conversion to BDS  C by J. R. Jaeger
+	Unix standardization by Jerry D. Pohl.
+
+	Conversion to MS VS6.0 C/C++ by Al Whinery of Maryland.
+	Borrowed some code from the John W. Kennedy conversion.
+	Added features to make the game more friendly.
+	Tried to make the code more friendly.
+
+		Would you like instructions?
+
+(y) or n : y or n : (y) : >y               Answer the intro question.
+
+
+Somewhere nearby is Colossal Cave, where others have
+found fortunes in treasure and gold, though it is rumored
+that some who enter are never seen again.
+Magic is said to work in the cave.
+Some have even found a Treasure map.
+I will be your eyes and hands.
+Direct me with commands of 1 or 2 words.
+Should you get stuck, type "help" for some general hints.
+For information on how to end your adventure, etc.,
+type "info".)
+
+
+You are standing at the end of a road before a small brick
+building.  Around you is a forest.  A small stream flows out
+of the building and down a gully.
+>
+>#               Any non empty line which doesn't start with a letter is a comment
+>!               This script tests all moves and move back commands for each non forced location.
+>*               Type "AdventureCCaw1 -deletelog - TestMoves_cmd.txt" to run this test.
+>
+>**nodie
+>*               Outherwize you get killed very quickly. This is what we want.
+>
+>dwset 0	        disable dwarf activity so we don't get killed :)	
+>*piset 0         disable pirate activity so he doesn't steal. Also puts chest in right place.
+>
+>* 		OK, lets test this game
+>
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>hill
+
+You have walked up a hill, still in the forest.  The road
+slopes back down the other side of the hill.  There is a
+building in the distance.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're at hill in road.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>ascend
+
+You're at hill in road.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>enter
+
+You are inside a building, a well house for a large spring.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>building
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>inside
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>gully
+
+You are in a valley in the forest beside a stream tumbling
+along a rocky bed.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>stream
+
+You're in valley.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>south
+
+You're in valley.
+>******************
+>
+>back
+
+You're at end of road again.
+
+
+Are you trying to find the cave?
+(y) or n : y or n : (y) : >***********************************************************
+>
+
+I am prepared to offer you a hint, but it will cost you points.  Do you want
+the hint?
+(y) or n : y or n : (y) : >tp 001
+(y) or n : y or n : (y) : >*********************************
+>
+I don't know where the cave is, but hereabouts no stream
+can run on the surface for very long.  I would try the stream.
+>downward
+
+You're in valley.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downstream
+
+You're in valley.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forest
+
+You are in open forest, with a deep valley to one side.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You're in forest.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>depression
+
+You are in a 20-foot depression floored with bare dirt.  Set
+into the dirt is a strong steel grate mounted in concrete.
+A dry streambed leads into the depression.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 001
+
+You're at end of road again.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>main
+I don't know how to apply that word here.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're at end of road again.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 002
+
+You're at hill in road.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>hill
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're at hill in road.
+>***********************************************************
+>
+>tp 002
+
+You're at hill in road.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>building
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're at hill in road.
+>***********************************************************
+>
+>tp 002
+
+You're at hill in road.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forward
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're at hill in road.
+>***********************************************************
+>
+>tp 002
+
+You're at hill in road.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're at hill in road.
+>***********************************************************
+>
+>tp 002
+
+You're at hill in road.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're at hill in road.
+>***********************************************************
+>
+>tp 002
+
+You're at hill in road.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downward
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're at hill in road.
+>***********************************************************
+>
+>tp 002
+
+You're at hill in road.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forest
+
+You're in forest.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 002
+
+You're at hill in road.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're at hill in road.
+>***********************************************************
+>
+>tp 002
+
+You're at hill in road.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>south
+
+You're in forest.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in forest.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 003
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>outside
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>***********************************************************
+>
+>tp 003
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>outdoors
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>***********************************************************
+>
+>tp 003
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>***********************************************************
+>
+>tp 003
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>xyzzy
+It is now pitch dark.  If you proceed you will likely fall
+into a pit.
+>******************
+>
+>back
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>***********************************************************
+>
+>tp 003
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>plugh
+It is now pitch dark.  If you proceed you will likely fall
+into a pit.
+A hollow voice says "Plugh".
+>******************
+>
+>back
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>***********************************************************
+>
+>tp 003
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downstream
+
+The stream flows out through a pair of 1 foot diameter
+sewer pipes.  It would be advisable to use the exit.
+>******************
+>
+>back
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>***********************************************************
+>
+>tp 003
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>upstream
+
+The stream flows out through a pair of 1 foot diameter
+sewer pipes.  It would be advisable to use the exit.
+>******************
+>
+>back
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>***********************************************************
+>
+>tp 003
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>stream
+
+The stream flows out through a pair of 1 foot diameter
+sewer pipes.  It would be advisable to use the exit.
+>******************
+>
+>back
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 004
+
+You're in valley.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>building
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're in valley.
+>***********************************************************
+>
+>tp 004
+
+You're in valley.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're in valley.
+>***********************************************************
+>
+>tp 004
+
+You're in valley.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forest
+
+You're in forest.
+>******************
+>
+>back
+
+You're in valley.
+>***********************************************************
+>
+>tp 004
+
+You're in valley.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're in forest.
+>******************
+>
+>back
+
+You're in valley.
+>***********************************************************
+>
+>tp 004
+
+You're in valley.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're in forest.
+>******************
+>
+>back
+
+You're in valley.
+>***********************************************************
+>
+>tp 004
+
+You're in valley.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>ascend
+
+You're in forest.
+>******************
+>
+>back
+
+You're in valley.
+>***********************************************************
+>
+>tp 004
+
+You're in valley.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downstream
+
+At your feet all the water of the stream splashes into a
+2-inch slit in the rock.  Downstream the streambed is bare rock.
+>******************
+>
+>back
+
+You're in valley.
+>***********************************************************
+>
+>tp 004
+
+You're in valley.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>upstream
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're in valley.
+>***********************************************************
+>
+>tp 004
+
+You're in valley.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>south
+
+You're at slit in streambed.
+>******************
+>
+>back
+
+You're in valley.
+>***********************************************************
+>
+>tp 004
+
+You're in valley.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downward
+
+You're at slit in streambed.
+>******************
+>
+>back
+
+You're in valley.
+>***********************************************************
+>
+>tp 004
+
+You're in valley.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>depression
+
+You're outside grate.
+
+The grate is locked.
+>******************
+>
+>back
+You can't get there from here.
+
+You're outside grate.
+
+The grate is locked.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>valley
+
+You're in valley.
+>******************
+>
+>back
+
+You're in forest.
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're in valley.
+>******************
+>
+>back
+
+You're in forest.
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downward
+
+You're in valley.
+>******************
+>
+>back
+
+You're in forest.
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forest
+
+You're in forest.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forward
+
+You are in open forest near both a valley and a road.
+>******************
+>
+>back
+
+You're in forest.
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You're in forest.
+>******************
+>
+>back
+
+You're in forest.
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forest
+
+You're in forest.
+>******************
+>
+>back
+
+You're in forest.
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forward
+
+You're in forest.
+>******************
+>
+>back
+
+You're in forest.
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You're in forest.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're in forest.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>south
+
+You're in forest.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 005
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>northwest
+
+You're in forest.
+>******************
+>
+>back
+
+You're in forest.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 006
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>hill
+
+You're at end of road again.
+>******************
+>
+>back
+You can't get there from here.
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 006
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You're at end of road again.
+>******************
+>
+>back
+You can't get there from here.
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 006
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>valley
+
+You're in valley.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in valley.
+>***********************************************************
+>
+>tp 006
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're in valley.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in valley.
+>***********************************************************
+>
+>tp 006
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're in valley.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in valley.
+>***********************************************************
+>
+>tp 006
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're in valley.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in valley.
+>***********************************************************
+>
+>tp 006
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downward
+
+You're in valley.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in valley.
+>***********************************************************
+>
+>tp 006
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forest
+
+You are in open forest, surrounded by trees.
+
+There are some very old oak trees here.
+>******************
+>
+>back
+You can't get there from here.
+
+You are in a forest.
+
+There are some very old oak trees here.
+>***********************************************************
+>
+>tp 006
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>south
+
+You're in forest.
+>******************
+>
+>back
+
+You're in forest.
+>***********************************************************
+>
+>tp 006
+
+You're in forest.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>northwest
+
+You are in a forest.
+
+There are some very old oak trees here.
+>******************
+>
+>back
+You can't get there from here.
+
+You are in a forest.
+
+There are some very old oak trees here.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>building
+
+You're at end of road again.
+>******************
+>
+>back
+You can't get there from here.
+
+You're at end of road again.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You're in valley.
+>******************
+>
+>back
+
+You're at slit in streambed.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forest
+
+You're in forest.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're in forest.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're in forest.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downstream
+
+You're outside grate.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're at slit in streambed.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>upstream
+
+You're in valley.
+>******************
+>
+>back
+
+You're at slit in streambed.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>rock
+
+You're outside grate.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're at slit in streambed.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>bed
+
+You're outside grate.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're at slit in streambed.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>south
+
+You're outside grate.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're at slit in streambed.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>slit
+You don't fit through a two-inch slit!
+
+You're at slit in streambed.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're at slit in streambed.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>stream
+You don't fit through a two-inch slit!
+
+You're at slit in streambed.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're at slit in streambed.
+>***********************************************************
+>
+>tp 007
+
+You're at slit in streambed.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downward
+You don't fit through a two-inch slit!
+
+You're at slit in streambed.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're at slit in streambed.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forest
+
+You're in forest.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're in forest.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>south
+
+You're in forest.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're in forest.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in forest.
+>***********************************************************
+>
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>building
+
+You're at end of road again.
+>******************
+>
+>back
+
+You're outside grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>upstream
+
+You're at slit in streambed.
+>******************
+>
+>back
+
+You're outside grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>gully
+
+You're at slit in streambed.
+>******************
+>
+>back
+
+You're outside grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You're at slit in streambed.
+>******************
+>
+>back
+
+You're outside grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>enter
+You can't go through a locked steel grate!
+
+You're outside grate.
+
+The grate is locked.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're outside grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>inside
+You can't go through a locked steel grate!
+
+You're outside grate.
+
+The grate is locked.
+
+
+Are you trying to get into the cave?
+(y) or n : y or n : (y) : >******************
+>
+
+I am prepared to offer you a hint, but it will cost you points.  Do you want
+the hint?
+(y) or n : y or n : (y) : >back
+(y) or n : y or n : (y) : >***********************************************************
+>
+The grate is very solid and has a hardened steel lock.  You
+cannot enter without a key, and there are no keys nearby.
+I would recommend looking elsewhere for the keys.
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downward
+You can't go through a locked steel grate!
+
+You're outside grate.
+
+The grate is locked.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're outside grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 008
+
+You're outside grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>enter
+You can't go through a locked steel grate!
+
+You're outside grate.
+
+The grate is locked.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're outside grate.
+
+The grate is locked.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 009
+
+You are in a small chamber beneath a 3x3 steel grate to the
+surface.  A low crawl over cobbles leads inward to the West.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>outside
+You can't go through a locked steel grate!
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 009
+
+You're below the grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>ascend
+You can't go through a locked steel grate!
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 009
+
+You're below the grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>outside
+You can't go through a locked steel grate!
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 009
+
+You're below the grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>crawl
+
+You are crawling over cobbles in a low passage.  There is a
+dim light at the east end of the passage.
+
+There is a small wicker cage discarded nearby.
+>******************
+>
+>back
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 009
+
+You're below the grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>cobblestone
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>******************
+>
+>back
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 009
+
+You're below the grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>inside
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>******************
+>
+>back
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 009
+
+You're below the grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>******************
+>
+>back
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 009
+
+You're below the grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>pit
+It is now pitch dark.  If you proceed you will likely fall
+into a pit.
+>******************
+>
+>back
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 009
+
+You're below the grate.
+
+The grate is locked.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>debris
+It is now pitch dark.  If you proceed you will likely fall
+into a pit.
+>******************
+>
+>back
+
+You're below the grate.
+
+The grate is locked.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 010
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>outside
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>***********************************************************
+>
+>tp 010
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>surface
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>***********************************************************
+>
+>tp 010
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>nowhere
+>******************
+>
+>back
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 010
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>***********************************************************
+>
+>tp 010
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>inside
+It is now pitch dark.  If you proceed you will likely fall
+into a pit.
+>******************
+>
+>back
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>***********************************************************
+>
+>tp 010
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>dark
+It is now pitch dark.  If you proceed you will likely fall
+into a pit.
+>******************
+>
+>back
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>***********************************************************
+>
+>tp 010
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+It is now pitch dark.  If you proceed you will likely fall
+into a pit.
+>******************
+>
+>back
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>***********************************************************
+>
+>tp 010
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>debris
+It is now pitch dark.  If you proceed you will likely fall
+into a pit.
+>******************
+>
+>back
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>***********************************************************
+>
+>tp 010
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>pit
+It is now pitch dark.  If you proceed you will likely fall
+into a pit.
+>******************
+>
+>back
+You can't get there from here.
+It is now pitch dark.  If you proceed you will likely fall
+into a pit.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 011
+Your lamp is now on.
+
+You are in a debris room filled with stuff washed in from the
+surface.  A low wide passage with cobbles becomes plugged
+with mud and debris here, but an awkward canyon leads
+upward and west.  A note on the wall says:
+       Magic Word "XYZZY"
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>depression
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>entrance
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>crawl
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>cobblestone
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>passage
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>low
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're in cobble crawl.
+
+There is a small wicker cage discarded nearby.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>canyon
+
+You are in an awkward sloping east/west canyon.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>inside
+
+You are in an awkward sloping east/west canyon.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>ascend
+
+You are in an awkward sloping east/west canyon.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You are in an awkward sloping east/west canyon.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>xyzzy
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 011
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>pit
+
+At your feet is a small pit breathing traces of white mist.
+An east passage ends here except for a small crack leading on.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 012
+
+You are in an awkward sloping east/west canyon.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>depression
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+You can't get there from here.
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 012
+
+You are in an awkward sloping east/west canyon.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>entrance
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+You can't get there from here.
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 012
+
+You are in an awkward sloping east/west canyon.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downward
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>******************
+>
+>back
+
+You are in an awkward sloping east/west canyon.
+>***********************************************************
+>
+>tp 012
+
+You are in an awkward sloping east/west canyon.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>******************
+>
+>back
+
+You are in an awkward sloping east/west canyon.
+>***********************************************************
+>
+>tp 012
+
+You are in an awkward sloping east/west canyon.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>debris
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>******************
+>
+>back
+
+You are in an awkward sloping east/west canyon.
+>***********************************************************
+>
+>tp 012
+
+You are in an awkward sloping east/west canyon.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>inside
+
+You are in a splendid chamber thirty feet high.  The walls
+are frozen rivers of orange stone.  An awkward canyon and a
+good passage exit from east and west sides of the chamber.
+
+A cheerful little bird is sitting here singing.
+>******************
+>
+>back
+
+You are in an awkward sloping east/west canyon.
+>***********************************************************
+>
+>tp 012
+
+You are in an awkward sloping east/west canyon.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>ascend
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+>******************
+>
+>back
+
+You are in an awkward sloping east/west canyon.
+>***********************************************************
+>
+>tp 012
+
+You are in an awkward sloping east/west canyon.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+>******************
+>
+>back
+
+You are in an awkward sloping east/west canyon.
+>***********************************************************
+>
+>tp 012
+
+You are in an awkward sloping east/west canyon.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>pit
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+You can't get there from here.
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 013
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>depression
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+You can't get there from here.
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 013
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>entrance
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+You can't get there from here.
+
+You're below the grate.
+
+The grate is locked.
+>***********************************************************
+>
+>tp 013
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>debris
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>******************
+>
+>back
+You can't get there from here.
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>***********************************************************
+>
+>tp 013
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>canyon
+
+You are in an awkward sloping east/west canyon.
+>******************
+>
+>back
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+>***********************************************************
+>
+>tp 013
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You are in an awkward sloping east/west canyon.
+>******************
+>
+>back
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+>***********************************************************
+>
+>tp 013
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>passage
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+>***********************************************************
+>
+>tp 013
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>pit
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+>***********************************************************
+>
+>tp 013
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 014
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>depression
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>***********************************************************
+>
+>tp 014
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>entrance
+
+You're below the grate.
+
+The grate is locked.
+>******************
+>
+>back
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>***********************************************************
+>
+>tp 014
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>debris
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>******************
+>
+>back
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>***********************************************************
+>
+>tp 014
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>passage
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+>******************
+>
+>back
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>***********************************************************
+>
+>tp 014
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're in bird chamber.
+
+A cheerful little bird is sitting here singing.
+>******************
+>
+>back
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>***********************************************************
+>
+>tp 014
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downward
+
+You are at one end of a vast hall stretching forward out of
+sight to the west.  There are openings to either side.
+Nearby, a wide stone staircase leads downward.  The hall
+is filled with wisps of white mist swaying to and fro
+almost as if alive.  A cold wind blows up the staircase.
+There is a passage at the top of a dome behind you.
+
+Rough stone steps lead up the dome.
+>******************
+>
+>back
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>***********************************************************
+>
+>tp 014
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>pit
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+>******************
+>
+>back
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>***********************************************************
+>
+>tp 014
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>steps
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+>******************
+>
+>back
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>***********************************************************
+>
+>tp 014
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downward
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+>******************
+>
+>back
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>***********************************************************
+>
+>tp 014
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>crack
+
+The crack is far too small for you to follow.
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>***********************************************************
+>
+>tp 014
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+The crack is far too small for you to follow.
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>left
+
+This is a low room with a crude note on the wall.  The
+note says:
+       You won't get it up the steps.
+
+There is a large sparkling nugget of gold here!
+>******************
+>
+>back
+A little dwarf just walked around a corner, saw you,
+threw a little axe at you, which missed, cursed, and ran away.
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>south
+
+You're in nugget of gold room.
+
+There is a large sparkling nugget of gold here!
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forward
+
+You are on the east bank of a fissure slicing clear across
+the hall.  The mist is quite thick here, and the fissure
+is too wide to jump.
+
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>hall
+
+You're on east bank of fissure.
+
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You're on east bank of fissure.
+
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>stairs
+
+You are in the hall of the mountain king, with passages
+off in all directions.
+
+A huge green fierce snake bars the way!
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downward
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>ascend
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>pit
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>steps
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>dome
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>passage
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>ascend
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>***********************************************************
+>
+>tp 015
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>y2
+
+You are in a jumble of rock, with cracks everywhere.
+>******************
+>
+>back
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 017
+
+You're on east bank of fissure.
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>hall
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>******************
+>
+>back
+
+You're on east bank of fissure.
+
+>***********************************************************
+>
+>tp 017
+
+You're on east bank of fissure.
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>******************
+>
+>back
+
+You're on east bank of fissure.
+
+>***********************************************************
+>
+>tp 017
+
+You're on east bank of fissure.
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>jump
+
+You didn't make it.
+
+Oh dear, you seem to have gotten yourself killed.  I might
+be able to help you out, but I've never really done this
+before.  Do you want me to try to reincarnate you?
+(y) or n : y or n : (y) : >******************
+>
+All right.  But don't blame me if something goes wr......
+                    --- POOF !! ---
+You are engulfed in a cloud of orange smoke.  Coughing and
+gasping, you emerge from the smoke and find...
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>back
+You can't get there from here.
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>***********************************************************
+>
+>tp 017
+Your lamp is now on.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forward
+
+You didn't make it.
+
+You clumsy oaf, you've done it again!  I don't know how long
+I can keep this up.  Do you want me to try reincarnating
+you again?
+(y) or n : y or n : (y) : >******************
+>
+Okay, now where did I put my orange smoke? ... > POOF! <
+Everything disappears in a dense cloud of orange smoke.
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>back
+You can't get there from here.
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>***********************************************************
+>
+>tp 017
+Your lamp is now on.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>over
+There is no way across the fissure.
+
+You're on east bank of fissure.
+
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're on east bank of fissure.
+
+>***********************************************************
+>
+>tp 017
+
+You're on east bank of fissure.
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>across
+There is no way across the fissure.
+
+You're on east bank of fissure.
+
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're on east bank of fissure.
+
+>***********************************************************
+>
+>tp 017
+
+You're on east bank of fissure.
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+There is no way across the fissure.
+
+You're on east bank of fissure.
+
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're on east bank of fissure.
+
+>***********************************************************
+>
+>tp 017
+
+You're on east bank of fissure.
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>cross
+There is no way across the fissure.
+
+You're on east bank of fissure.
+
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're on east bank of fissure.
+
+>***********************************************************
+>
+>tp 017
+
+You're on east bank of fissure.
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>over
+There is no way across the fissure.
+
+You're on east bank of fissure.
+
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're on east bank of fissure.
+
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 018
+
+You're in nugget of gold room.
+
+There is a large sparkling nugget of gold here!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>hall
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>******************
+>
+>back
+
+You're in nugget of gold room.
+
+There is a large sparkling nugget of gold here!
+>***********************************************************
+>
+>tp 018
+
+You're in nugget of gold room.
+
+There is a large sparkling nugget of gold here!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>outside
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>******************
+>
+>back
+
+You're in nugget of gold room.
+
+There is a large sparkling nugget of gold here!
+>***********************************************************
+>
+>tp 018
+
+You're in nugget of gold room.
+
+There is a large sparkling nugget of gold here!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>******************
+>
+>back
+
+You're in nugget of gold room.
+
+There is a large sparkling nugget of gold here!
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>stairs
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>******************
+>
+>back
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>ascend
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>******************
+>
+>back
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+There is a little axe here.
+>******************
+>
+>back
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You can't get by the snake.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>left
+
+You can't get by the snake.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>south
+
+You can't get by the snake.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+
+
+Are you trying to somehow deal with the snake?
+(y) or n : y or n : (y) : >******************
+>
+
+I am prepared to offer you a hint, but it will cost you points.  Do you want
+the hint?
+(y) or n : y or n : (y) : >back
+(y) or n : y or n : (y) : >***********************************************************
+>
+You can't kill the snake, or drive it away, or avoid it,
+or anything like that.  There is a way to get by, but you
+don't have the necessary resources right now.
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>right
+
+You can't get by the snake.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You can't get by the snake.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>forward
+
+You can't get by the snake.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>north
+
+You can't get by the snake.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>sw
+
+You can't get by the snake.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>sw
+
+You are in a secret canyon which here runs E/W.  It crosses
+over a very tight canyon 15 feet below.  If you go down you
+may not be able to get back up.
+>******************
+>
+>back
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>***********************************************************
+>
+>tp 019
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>secret
+
+You're at secret E/W canyon above tight canyon.
+>******************
+>
+>back
+
+You're in hall of mt. king.
+
+A huge green fierce snake bars the way!
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 023
+
+You are at the west end of the twopit room.  There is a
+large hole in the wall above the pit at this end of the room.
+
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>east
+
+You are at the east end of the twopit room.  The floor
+here is littered with thin rock slabs, which make it easy
+to descend the pits.  There is a path here bypassing
+the pits to connect passages from east and west.
+There are holes all over, but the only big one is on
+the wall directly over the west pit where you can't
+get at it.
+
+
+>******************
+>
+>back
+
+You're at west end of twopit room.
+
+
+>***********************************************************
+>
+>tp 023
+
+You're at west end of twopit room.
+
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>across
+
+You're at east end of twopit room.
+
+
+>******************
+>
+>back
+
+You're at west end of twopit room.
+
+
+>***********************************************************
+>
+>tp 023
+
+You're at west end of twopit room.
+
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>west
+
+You are in a large low circular chamber whose floor is
+an immense slab fallen from the ceiling (slab room).
+East and west there once were large passages, but they
+are now filled with boulders.  Low small passages go
+north and south, and the south one quickly bends west
+around the boulders.
+>******************
+>
+>back
+
+You're at west end of twopit room.
+
+
+>***********************************************************
+>
+>tp 023
+
+You're at west end of twopit room.
+
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>slab
+
+You're in slab room.
+>******************
+>
+>back
+
+You're at west end of twopit room.
+
+
+>***********************************************************
+>
+>tp 023
+
+You're at west end of twopit room.
+
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>downward
+
+You are at the bottom of the western pit in the towpit room.
+There is a large hole in the wall about 25 feet above you.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+>******************
+>
+>back
+
+You're at west end of twopit room.
+
+
+>***********************************************************
+>
+>tp 023
+
+You're at west end of twopit room.
+
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>pit
+There are faint rustling noises from the darkness behind
+you.
+
+You're in west pit.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+>******************
+>
+>back
+There are faint rustling noises from the darkness behind
+you.
+
+You're at west end of twopit room.
+
+
+>***********************************************************
+>
+>tp 023
+
+You're at west end of twopit room.
+
+
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>hole
+It is too far up for you to reach.
+
+You're at west end of twopit room.
+
+
+>******************
+>
+>back
+Sorry, but I no longer seem to remember how it was you
+got here.
+
+You're at west end of twopit room.
+
+
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 024
+
+You are that the bottom of the eastern pit in the twopit
+room.  There is a small pool of oil in one corner of the
+pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>ascend
+
+You're at east end of twopit room.
+
+
+>******************
+>
+>back
+
+You're in east pit.
+>***********************************************************
+>
+>tp 024
+
+You're in east pit.
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>outside
+
+You're at east end of twopit room.
+
+
+>******************
+>
+>back
+
+You're in east pit.
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 025
+
+You're in west pit.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>ascend
+
+You're at west end of twopit room.
+
+
+>******************
+>
+>back
+
+You're in west pit.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+>***********************************************************
+>
+>tp 025
+
+You're in west pit.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>outside
+
+You're at west end of twopit room.
+
+
+>******************
+>
+>back
+
+You're in west pit.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+>***********************************************************
+>
+>tp 025
+
+You're in west pit.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>climb
+
+>$<
+
+There is nothing here to climb.  Use "up" or "out" to leave
+the pit.
+
+You're in west pit.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+>******************
+>
+>back
+You can't get there from here.
+
+You're in west pit.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+>***********************************************************
+>
+>tp 025
+
+You're in west pit.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>climb
+
+>$<
+
+There is nothing here to climb.  Use "up" or "out" to leave
+the pit.
+
+You're in west pit.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+>******************
+>
+>back
+You can't get there from here.
+
+You're in west pit.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+>----------------------------------------------------------------
+>***********************************************************
+>
+>tp 027
+
+You are on the west side of the fissure in the hall of mists.
+
+There are diamonds here!
+You are currently holding the following:
+Brass lantern
+>*********************************
+>
+>jump
+
+You didn't make it.
+
+Now you've really done it!  I'm out of orange smoke!  You
+don't expect me to do a decent reincarnation without any
+orange smoke, do you?
+(y) or n : y or n : (y) : >******************
+>
+Okay, If you're so smart, do it yourself!  I'm leaving!
+Treasures:          4
+Getting well in:    25
+Hints & intructions:   -45
+Score:                0
+Turns:                427
+
+You are obviously a rank amateur. Better luck next time.
+
+To achieve the next higher rating, you need 35 more points.
+Press Enter to Exit :)>back

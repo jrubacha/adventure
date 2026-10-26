@@ -1,0 +1,1737 @@
+
+
+
+		Welcome to ADVENTURE!
+
+
+	Original development by Willie Crowther.
+	Major features added by Don Woods.
+	Conversion to BDS  C by J. R. Jaeger
+	Unix standardization by Jerry D. Pohl.
+
+	Conversion to MS VS6.0 C/C++ by Al Whinery of Maryland.
+	Borrowed some code from the John W. Kennedy conversion.
+	Added features to make the game more friendly.
+	Tried to make the code more friendly.
+
+		Would you like instructions?
+
+(y) or n : y or n : (y) : >y               Answer to the intro question.
+
+
+Somewhere nearby is Colossal Cave, where others have
+found fortunes in treasure and gold, though it is rumored
+that some who enter are never seen again.
+Magic is said to work in the cave.
+Some have even found a Treasure map.
+I will be your eyes and hands.
+Direct me with commands of 1 or 2 words.
+Should you get stuck, type "help" for some general hints.
+For information on how to end your adventure, etc.,
+type "info".)
+
+
+You are standing at the end of a road before a small brick
+building.  Around you is a forest.  A small stream flows out
+of the building and down a gully.
+>
+>#               Any non empty line which doesn't start with a letter is a comment
+>!               This script tests all moves and move back commands for each non forced location.
+>*               Type "AdventureCCaw1 -deletelog - adventure1_cmd.txt" to run this test.
+>
+>vocab 5         Set the vocabulary compare length to 5 characters.
+vocabulary search length is now 5.
+please use w and nw to distinguish between West and Northwest.
+Say "vocab" to switch to exact matching.
+or
+Say "vocab 4" or some number > 3 and < 20 for specfic compare length.
+>dwset 0	        disable dwarf activity so we don't get killed :)	
+>*piset 0         Disable pirate activity so he doesn't steal. Also puts chest in right place.
+>friendly 1      Turn on friendly to display locations and so the pirate won't steal what we need.
+>hints 0         Turn hints off
+>
+>* 		OK, lets win this game
+>
+>forest
+Location 5:
+
+You are in open forest, with a deep valley to one side.
+>ascend
+Location 6:
+
+You are in open forest near both a valley and a road.
+>forest
+Location 141:
+
+You are in open forest, surrounded by trees.
+
+There are some very old oak trees here.
+>climb tree
+Location 142:
+
+You are in a tree house overlooking the forest and vallys.
+In the distance a stream leads into a building.
+
+There is a very old Treasure Map here!
+>get map
+Ok.
+>d
+Location 141:
+
+You are in a forest.
+
+There are some very old oak trees here.
+>main
+Location 143:
+
+You are in the Main Office, the wizard is currently out.
+You can leave a present for the wizard and he'll reward you later.
+>drop map
+Ok.
+>building 
+Location 3:
+
+You are inside a building, a well house for a large spring.
+
+There are some keys on the ground here.
+There is a shiny brass lamp nearby.
+There is tasty food here.
+There is a bottle of water here.
+>take lamp
+Ok.
+>light lamp
+Your lamp is now on.
+>xyzzy
+Location 11:
+
+You are in a debris room filled with stuff washed in from the
+surface.  A low wide passage with cobbles becomes plugged
+with mud and debris here, but an awkward canyon leads
+upward and west.  A note on the wall says:
+       Magic Word "XYZZY"
+
+A three foot black rod with a rusty star on an end lies nearby.
+>e
+Location 10:
+
+You are crawling over cobbles in a low passage.  There is a
+dim light at the east end of the passage.
+
+There is a small wicker cage discarded nearby.
+>take cage
+Ok.
+>pit
+Location 14:
+
+At your feet is a small pit breathing traces of white mist.
+An east passage ends here except for a small crack leading on.
+
+Rough stone steps lead down the pit.
+>e
+Location 13:
+
+You are in a splendid chamber thirty feet high.  The walls
+are frozen rivers of orange stone.  An awkward canyon and a
+good passage exit from east and west sides of the chamber.
+
+A cheerful little bird is sitting here singing.
+>take bird
+Ok.
+>w  
+Location 14:
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>d  
+Location 15:
+
+You are at one end of a vast hall stretching forward out of
+sight to the west.  There are openings to either side.
+Nearby, a wide stone staircase leads downward.  The hall
+is filled with wisps of white mist swaying to and fro
+almost as if alive.  A cold wind blows up the staircase.
+There is a passage at the top of a dome behind you.
+
+Rough stone steps lead up the dome.
+>s  
+Location 18:
+
+This is a low room with a crude note on the wall.  The
+note says:
+       You won't get it up the steps.
+
+There is a large sparkling nugget of gold here!
+>take gold  
+Ok.
+>n  
+Location 15:
+
+You're in hall of mists.
+>n  
+Location 19:
+
+You are in the hall of the mountain king, with passages
+off in all directions.
+
+A huge green fierce snake bars the way!
+>free bird  
+The little bird attacks the green snake, and in an
+astounding flurry drives the snake away.
+>drop cage  
+Ok.
+>s  
+Location 29:
+
+You are in the south side chamber.
+
+There is precious jewelry here!
+>take jewel  
+Ok.
+>n  
+Location 19:
+
+You're in hall of mt. king.
+
+There is a small wicker cage discarded nearby.
+A cheerful little bird is sitting here singing.
+>w  
+Location 30:
+
+You are in the west side chamber of the hall of the
+mountain king.  A passage continues west and up here.
+
+There are many coins here!
+>take coins  
+Ok.
+A little dwarf just walked around a corner, saw you,
+threw a little axe at you, which missed, cursed, and ran away.
+>e  
+Location 19:
+
+You're in hall of mt. king.
+
+There is a small wicker cage discarded nearby.
+A cheerful little bird is sitting here singing.
+>n  
+Location 28:
+
+You are in a low N/S passage at a hole in the floor.
+The hole goes down to an E/W passage.
+
+There are bars of silver here!
+>take silve  
+Ok.
+>n  
+Location 33:
+
+You are in a large room, with a passage to the south,
+a passage to the west, and a wall of broken rock to the
+east. There is a large "Y2" on a rock in the room's center.
+A hollow voice says "Plugh".
+>Plover  
+Location 100:
+
+You're in a small chamber lit by an eerie green light.  An
+extremely narrow tunnel exits to the west.  A dark corridor
+leads ne.
+
+There is an emerald here the size of a plover's egg!
+>ne  
+Location 101:
+
+You're in the dark-room.  A corridor leading south is the
+only exit.
+
+A massive stone tablet imbedded in the wall reads:
+"Congratulations on bringing light into the dark-room!"
+There is a platinum pyramid here, 8 inches on a side!
+>take plati  
+Ok.
+>s  
+Location 100:
+
+You're in plover room.
+
+There is an emerald here the size of a plover's egg!
+>plover  
+Location 33:
+
+You're at "Y2".
+>plugh  
+Location 3:
+
+You're inside building.
+
+There are some keys on the ground here.
+There is tasty food here.
+There is a bottle of water here.
+>drop plati
+Ok.
+>drop all
+	lamp	Ok.
+	gold	Ok.
+	bars	Ok.
+	jewel	Ok.
+	coins	Ok.
+>take lamp
+Ok.
+>take bottl  
+Ok.
+>take food  
+Ok.
+>take keys  
+Ok.
+>plugh  
+Location 33:
+
+You're at "Y2".
+>s  
+Location 28:
+
+You are in a low N/S passage at a hole in the floor.  The
+hole goes down to an E/W passage.
+>d  
+Location 36:
+
+You are in a dirty broken passage.  To the east is a
+crawl.  To the west is a large passage.  Above you is
+another passage.
+>bedquilt  
+Location 65:
+
+You are in bedquilt, a long east/west passage with holes
+everywhere.  To explore at random select north, south, up
+or down.
+>slab  
+Location 68:
+
+You are in a large low circular chamber whose floor is
+an immense slab fallen from the ceiling (slab room).
+East and west there once were large passages, but they
+are now filled with boulders.  Low small passages go
+north and south, and the south one quickly bends west
+around the boulders.
+>s  
+Location 23:
+
+You are at the west end of the twopit room.  There is a
+large hole in the wall above the pit at this end of the room.
+
+
+>d  
+Location 25:
+
+You are at the bottom of the western pit in the towpit room.
+There is a large hole in the wall about 25 feet above you.
+
+There is a tiny little plant in the pit, murmuring
+"Water, Water, ..."
+>water plant  
+The plant spurts into furious growth for a few seconds.
+Location 25:
+
+You're in west pit.
+>u  
+Location 23:
+
+You're at west end of twopit room.
+
+The top of a 12-foot-tall beanstalk is poking up out of
+the west pit.
+>w  
+Location 68:
+
+You're in slab room.
+>u  
+Location 69:
+
+You are in a secret N/S canyon above a large room.
+>reservoir  
+Location 113:
+
+You are at the edge of a large underground reservoir.  An
+opaque cloud of white mist fills the room and rises
+rapidly upward.  The lake is fed by a stream which tumbles
+out of a hole in the wall about 10 feet overhead and
+splashes noisily into the water somewhere within the mist.
+The only passage goes back toward the south.
+>fill bottle  
+Your bottle is now full of water.
+>s  
+Location 109:
+
+You are in a north/south canyon about 25 feet across.  The
+floor is covered by white mist seeping in from the north.
+The walls extend upward for well over 100 feet.  Suspended
+from some unseen point far above you, an enormous two-
+sided mirror is hanging paralled to and midway between
+the canyon walls.  (The mirror is obviously provided
+for the use of the dwarves, who as you know, are
+extremely vain.)  A small window can be seen in either
+wall, some fifty feet up.
+
+>s  
+Location 69:
+
+You are in a secret N/S canyon above a large room.
+>d  
+Location 68:
+
+You're in slab room.
+>s  
+Location 23:
+
+You're at west end of twopit room.
+
+The top of a 12-foot-tall beanstalk is poking up out of
+the west pit.
+>d  
+There are faint rustling noises from the darkness behind
+you.
+Location 25:
+
+You're in west pit.
+
+There is a 12-foot-tall beanstalk stretching up out of
+the pit, bellowing "Water!! Water!!"
+>water plant  
+The plant grows explosively, almost filling the bottom
+of the pit. 
+Location 25:
+
+You're in west pit.
+>u  
+There are faint rustling noises from the darkness behind
+you.
+Location 23:
+
+You're at west end of twopit room.
+
+There is a huge beanstalk growing out of the west pit up to
+the hole.
+>e  
+Location 67:
+
+You are at the east end of the twopit room.  The floor
+here is littered with thin rock slabs, which make it easy
+to descend the pits.  There is a path here bypassing
+the pits to connect passages from east and west.
+There are holes all over, but the only big one is on
+the wall directly over the west pit where you can't
+get at it.
+
+There is a huge beanstalk growing out of the west pit up to
+the hole.
+>d  
+Location 24:
+
+You are that the bottom of the eastern pit in the twopit
+room.  There is a small pool of oil in one corner of the
+pit.
+>fill bottle  
+Your bottle is now full of oil.
+>u  
+Location 67:
+
+You're at east end of twopit room.
+
+There is a huge beanstalk growing out of the west pit up to
+the hole.
+>w  
+Location 23:
+
+You're at west end of twopit room.
+
+There is a huge beanstalk growing out of the west pit up to
+the hole.
+>d  
+Location 25:
+
+You're in west pit.
+
+There is a gigantic beanstalk stretching all the way
+up to the hole.
+>climb plant  
+Location 26:
+
+You clamber up the plant and scurry through the hole at the top.
+Location 88:
+
+You are in a long, narrow corridor stretching out of sight
+to the west.  At the eastern end is a hole through which
+you can see a profusion of leaves,
+>w
+Location 92:
+
+You are in the giant room.  The ceiling is too high up
+for your lamp to show it.  Cavernous passages lead east,
+north, and south.  On the west wall is scrawled the
+inscription:
+              "Fee Fie Foe Foo"       {sic}
+
+There is a large nest here, full of golden eggs!
+>take eggs  
+Ok.
+>n  
+Location 94:
+
+You are at one end of an immense north/south passage.
+
+The way north is barred by a massive, rusty, iron door.
+>oil door  
+The oil has freed up the hinges so that the door will now move,
+although it requires some effort.
+>drop bottl  
+Ok.
+>n  
+There are faint rustling noises from the darkness behind
+you.
+Location 95:
+
+You are in a magnificent cavern with a rushing stream,
+which cascades over a sparkling waterfall into a
+roaring whirlpool which disappears through a hole in
+the floor.  Passages exit to the south and west.
+
+There is a jewel-encrusted trident here!
+>take tride  
+Ok.
+>w  
+There are faint rustling noises from the darkness behind
+you.
+Location 91:
+
+You are at the top of a steep incline above a large room.
+You could climb down here, but you would not be able to
+climb up.  There is a passage leading back to the north.
+>d  
+Location 72:
+
+You are in a large low room.  Crawls lead north, se, and sw.
+>sw  
+Location 118:
+
+You are in a long winding corridor sloping out of sight
+in both directions.
+>u  
+Location 117:
+
+You are on one side of a large deep chasm.  A heavy white
+mist rising up from below obscures all view of the far
+side.  A sw path leads away from the chasm into a winding
+corridor.
+
+A rickety wooden bridge extends across the chasm, vanishing
+into the mist.  A sign posted on the bridge reads:
+          "Stop!  Pay Troll!"
+A burly troll stands by the bridge and insists you throw
+him a treasure before you may cross.
+>toss eggs  
+The troll catches your treasure and scurries away out of sight.
+>cross  
+Location 122:
+
+You are on the far side of the chasm.  A ne path leads away
+from the chasm on this side.
+
+A rickety wooden bridge extends across the chasm, vanishing
+into the mist.  A sign posted on the bridge reads:
+          "Stop!  Pay Troll!"
+The troll is nowhere to be seen.
+>ne  
+Location 123:
+
+You're in a long east/west corridor.  A faint rumbling noise
+can be heard in the distance.
+>barren  
+Location 129:
+
+You are standing at the entrance to a large, barren
+room.  A sign posted above the entrance reads:
+       "Caution!  Bear in room!"
+>e  
+Location 130:
+
+You are inside a barren room.  The center of the room
+is completely empty except for some dust.  Marks in
+the dust lead away toward the far end of the room.
+The only exit is the way you came in.
+
+There is a ferocious cave bear eyeing you from the far
+end of the room!
+The bear is locked to the wall with a golden chain!
+>feed bear  
+The bear eagerly wolfs down your food, after which he seems
+to calm down considerably, and even becomes rather friendly.
+>open chain  
+The chain is now unlocked.
+>drop keys  
+Ok.
+>take chain  
+Ok.
+>take bear  
+Ok.
+>w  
+You are being followed by a very large, tame bear.
+Location 129:
+
+You're in front of barren room.
+>fork  
+You are being followed by a very large, tame bear.
+Location 124:
+
+The path forks here.  The left fork leads northeast.  A dull
+rumbling seems to get louder in that direction.  The right
+fork leads southeast down a gentle slope.  The main
+corridor enters from the west.
+>ne  
+You are being followed by a very large, tame bear.
+Location 125:
+
+The walls are quite warm here.  From the north can be heard
+a steady roar, so loud that the entire cave seems to be
+trembling.  Another passage leads south, and a low crawl
+goes east.
+>e  
+You are being followed by a very large, tame bear.
+Location 127:
+
+You are in a small chamber filled with large boulders.
+The walls are very warm, causing the air in the room
+to be almost stifling from the heat.  The only exit
+is a crawl heading west, through which is coming
+a low rumbling.
+
+There are rare spices here!
+>take spice  
+Ok.
+>fork  
+You are being followed by a very large, tame bear.
+Location 124:
+
+You're at fork in path.
+>w  
+You are being followed by a very large, tame bear.
+Location 123:
+
+You're in corridor.
+>w  
+You are being followed by a very large, tame bear.
+Location 122:
+
+You're on ne side of chasm.
+
+A rickety wooden bridge extends across the chasm, vanishing
+into the mist.  A sign posted on the bridge reads:
+          "Stop!  Pay Troll!"
+The troll is nowhere to be seen.
+>cross  
+The troll steps out from beneath the bridge and blocks
+your way.
+You are being followed by a very large, tame bear.
+Location 122:
+
+You're on ne side of chasm.
+
+A rickety wooden bridge extends across the chasm, vanishing
+into the mist.  A sign posted on the bridge reads:
+          "Stop!  Pay Troll!"
+A burly troll stands by the bridge and insists you throw
+him a treasure before you may cross.
+>free bear  
+The bear lumbers toward the troll, who lets out a
+startled shriek and scurries away.  The bear soon gives
+up pursuit and wanders back.
+Ok.
+>cross  
+Out from the shadows behind you pounces a bearded pirate!
+"Har, har" he chortles, "I'll just take all this booty and
+hide it away with me chest deep in the maze!"  He snatches
+your treasure and vanishes into the gloom.
+Location 117:
+
+You're on sw side of chasm.
+
+A rickety wooden bridge extends across the chasm, vanishing
+into the mist.  A sign posted on the bridge reads:
+          "Stop!  Pay Troll!"
+The troll is nowhere to be seen.
+>sw  
+Location 118:
+
+You're in sloping corridor.
+>d  
+Location 72:
+
+You are in a large low room.  Crawls lead north, se, and sw.
+>bedquilt  
+Location 65:
+
+You are in bedquilt, a long east/west passage with holes
+everywhere.  To explore at random select north, south, up
+or down.
+>e  
+Location 64:
+
+You are at a complex junction.  A low hands and knees passage
+from the north joins a higher crawl from the east to make
+a walking passage going west.  There is also a large room
+above.  The air is damp here.
+>n  
+Location 103:
+
+You're in a large room carved out of sedimentary rock.
+The floor and walls are littered with bits of shells
+imbedded in the stone.  A shallow passage proceeds
+downward, and a somewhat steeper one leads up.  A low
+hands and knees passage enters from the south.
+
+There is an enormous clam here with its shell tightly closed.
+>open clam  
+A glistening pearl falls out of the clam and rolls away.
+Goodness, this must really be an oyster.  (I never was
+very good at identifying bivalves.)  Whatever it is,
+it has now snapped shut again.
+>d  
+Location 104:
+
+You are in a long sloping corridor with ragged sharp walls.
+>d  
+Location 105:
+
+You are in a cul-de-sac about eight feet across.
+
+Off to one side lies a glistening pearl!
+>take pearl  
+Ok.
+>u  
+Location 104:
+
+You are in a long sloping corridor with ragged sharp walls.
+>u  
+Location 103:
+
+You're in shell room.
+
+There is an enormous oyster here with its shell tightly closed.
+>s  
+Location 64:
+
+You're at complex junction.
+>u  
+Location 39:
+
+You are in a large room full of dusty rocks.  There is a
+big hole in the floor.  There are cracks everywhere, and
+a passage leading east.
+>e  
+Location 36:
+
+You're in dirty passage.
+>u  
+Location 28:
+
+You are in a low N/S passage at a hole in the floor.  The
+hole goes down to an E/W passage.
+>n  
+Location 33:
+
+You're at "Y2".
+>plugh  
+Location 3:
+
+You're inside building.
+
+There is a large sparkling nugget of gold here!
+There are bars of silver here!
+There is precious jewelry here!
+There are many coins here!
+There is a platinum pyramid here, 8 inches on a side!
+>drop chain
+I see no chain here.
+>drop spice
+I see no spice here.
+>drop tride
+Ok.
+>drop pearl
+Ok.
+>plugh  
+Location 33:
+
+You're at "Y2".
+>s  
+Location 28:
+
+You are in a low N/S passage at a hole in the floor.  The
+hole goes down to an E/W passage.
+>d  
+Location 36:
+
+You're in dirty passage.
+>bedquilt  
+Location 65:
+
+You are in bedquilt, a long east/west passage with holes
+everywhere.  To explore at random select north, south, up
+or down.
+>w  
+Location 66:
+
+You are in a room whose walls resemble swiss cheese.  
+Obvious passages go west, east, ne, and nw.  Part of the
+room is occupied by a large bedrock block.
+>oriental  
+Location 97:
+
+This is the oriental room.  Ancient oriental cave drawings
+cover the walls.  A gently sloping passage leads upward
+to the north, another passage leads se, and a hands and
+knees crawl leads west.
+
+There is a delicate, precious, ming vase here!
+>n  
+Location 98:
+
+You are following a wide path around the outer edge of a
+large cavern.  Far below, through a heavy white mist,
+strange splashing noises can be heard.  The mist rises up
+through a fissure in the ceiling.  The path exits to the
+south and west.
+>w  
+Location 99:
+
+You are in an alcove.  A small nw path seems to widen
+after a short distance.  An extremely tight tunnel leads
+east.  It looks like a very tight squeeze.  An eerie
+light can be seen at the other end.
+>drop lamp  
+Ok.
+>e  
+Location 100:
+
+You're in plover room.
+
+There is an emerald here the size of a plover's egg!
+>take emera  
+Ok.
+>w  
+Location 99:
+
+You're in alcove.
+
+There is a lamp shining nearby.
+>take lamp
+Ok.
+>nw  
+Location 98:
+
+You're in misty cavern.
+>s  
+Location 97:
+
+You're in oriental room.
+
+There is a delicate, precious, ming vase here!
+>take vase  
+Ok.
+>se  
+Location 66:
+
+You're in swiss cheese room.
+>e  
+Location 96:
+
+You are in the soft room.  The walls are covered with
+heavy curtains, the floor with a thick pile carpet.
+Moss covers the ceiling.
+
+A small velvet pillow lies on the floor.
+>take pillo  
+Ok.
+>w  
+Location 66:
+
+You're in swiss cheese room.
+>w  
+Location 67:
+
+You're at east end of twopit room.
+
+There is a huge beanstalk growing out of the west pit up to
+the hole.
+>w  
+Location 23:
+
+You're at west end of twopit room.
+
+There is a huge beanstalk growing out of the west pit up to
+the hole.
+>d  
+Location 25:
+
+You're in west pit.
+
+There is a gigantic beanstalk stretching all the way
+up to the hole.
+>climb plant  
+Location 26:
+
+You clamber up the plant and scurry through the hole at the top.
+Location 88:
+
+You're in narrow corridor.
+>w  
+Location 92:
+
+You're in giant room.
+>w  
+There is no way to go that direction.
+>fee  
+>fie
+>foe
+>foo
+There is a large nest here, full of golden eggs!
+>take eggs  
+Ok.
+>cp cp_P1of2
+Ok.
+>q
+
+Do you really want to quit now?
+(y) or n : y or n : (y) : >
+Ok.
+Treasures:          106
+Survival:           30
+Getting well in:    25
+Score:                163
+Turns:                164
+
+You may now consider yourself a "seasoned adventurer."
+
+To achieve the next higher rating, you need 37 more points.
+Press Enter to Exit :)>
+
+
+
+		Welcome to ADVENTURE!
+
+
+	Original development by Willie Crowther.
+	Major features added by Don Woods.
+	Conversion to BDS  C by J. R. Jaeger
+	Unix standardization by Jerry D. Pohl.
+
+	Conversion to MS VS6.0 C/C++ by Al Whinery of Maryland.
+	Borrowed some code from the John W. Kennedy conversion.
+	Added features to make the game more friendly.
+	Tried to make the code more friendly.
+
+		Would you like instructions?
+
+(y) or n : y or n : (y) : >y               Answer the intro question.
+
+
+Somewhere nearby is Colossal Cave, where others have
+found fortunes in treasure and gold, though it is rumored
+that some who enter are never seen again.
+Magic is said to work in the cave.
+Some have even found a Treasure map.
+I will be your eyes and hands.
+Direct me with commands of 1 or 2 words.
+Should you get stuck, type "help" for some general hints.
+For information on how to end your adventure, etc.,
+type "info".)
+
+
+You are standing at the end of a road before a small brick
+building.  Around you is a forest.  A small stream flows out
+of the building and down a gully.
+>
+>#               Any non empty line which doesn't start with a letter is a comment
+>!               This script tests all moves and move back commands for each non forced location.
+>*               Type "AdventureCCaw1 -deletelog - adventure1_cmd.txt" to run this test.
+>
+>*vocab 5         Set the vocabulary compare length to 5 characters.
+>*dwset 0         Disable dwarf activity so we don't get killed :)	
+>*piset 0         Disable pirate activity so he doesn't steal. Also puts chest in right place.
+>*friendly 1      Turn on friendly to display locations and so the pirate won't steal what we need.
+>*hints 0         Turn hints off
+>
+>* 		OK, lets win this game
+>*	continue 
+>
+>rcp cp_P1of2
+Ok.
+Ok.
+Location 92:
+
+You are in the giant room.  The ceiling is too high up
+for your lamp to show it.  Cavernous passages lead east,
+north, and south.  On the west wall is scrawled the
+inscription:
+              "Fee Fie Foe Foo"       {sic}
+>s  
+Location 88:
+
+You're in narrow corridor.
+>d  
+Location 25:
+
+You're in west pit.
+
+There is a gigantic beanstalk stretching all the way
+up to the hole.
+>u  
+Location 23:
+
+You're at west end of twopit room.
+
+There is a huge beanstalk growing out of the west pit up to
+the hole.
+>w  
+Location 68:
+
+You're in slab room.
+>u  
+Location 69:
+
+You are in a secret N/S canyon above a large room.
+>s  
+Location 119:
+
+You are in a secret canyon which exits to the north and east.
+
+A huge green fierce dragon bars the way!
+The dragon is sprawled out on a persian rug!!
+>kill dragon
+
+With what? Your bare hands?
+(y) or n : y or n : (y) : >yes  
+Congratulations!  You have just vanquished a dragon with
+your bare hands!  (Unbelievable, Isn't it?)
+Location 120:
+
+You are in a secret canyon which exits to the north and east.
+
+The body of a huge green dead dragon is lying off to one
+side.
+There is a persian rug spread out on the floor!
+>take rug  
+Ok.
+>e  
+Location 74:
+
+You are in a secret canyon which here runs E/W.  It crosses
+over a very tight canyon 15 feet below.  If you go down you
+may not be able to get back up.
+>e  
+Location 19:
+
+You're in hall of mt. king.
+
+There is a small wicker cage discarded nearby.
+A cheerful little bird is sitting here singing.
+>n  
+Location 28:
+
+You are in a low N/S passage at a hole in the floor.  The
+hole goes down to an E/W passage.
+>n  
+Location 33:
+
+You're at "Y2".
+A hollow voice says "Plugh".
+>plugh  
+Location 3:
+
+You're inside building.
+
+There is a large sparkling nugget of gold here!
+There are bars of silver here!
+There is precious jewelry here!
+There are many coins here!
+There is a jewel-encrusted trident here!
+There is a platinum pyramid here, 8 inches on a side!
+Off to one side lies a glistening pearl!
+>drop rug  
+Ok.
+>drop pillo  
+Ok.
+>drop vase
+The vase is now resting, delicately, on a velvet pillow.
+>drop emera
+Ok.
+>drop eggs
+Ok.
+>xyzzy  
+Location 11:
+
+You're in debris room.
+
+A three foot black rod with a rusty star on an end lies nearby.
+>take wand  
+Ok.
+>pit  
+Location 14:
+
+You're at top of small pit.
+
+Rough stone steps lead down the pit.
+>d  
+Location 15:
+
+You're in hall of mists.
+
+Rough stone steps lead up the dome.
+>w  
+Location 17:
+
+You are on the east bank of a fissure slicing clear across
+the hall.  The mist is quite thick here, and the fissure
+is too wide to jump.
+
+>wave wand  
+A crystal bridge now spans the fissure.
+>w  
+Location 27:
+
+You are on the west side of the fissure in the hall of mists.
+
+A crystal bridge now spans the fissure.
+There are diamonds here!
+>take diamo  
+Ok.
+There are faint rustling noises from the darkness behind
+you.
+>w  
+Location 41:
+
+You are at the west end of hall of mists.  A low wide crawl
+continues west and another goes north.  To the south is a
+little passage 6 feet off the floor.
+>s  
+Location 42:
+
+You are in a maze of twisty little passages, all alike.
+>e  
+Location 43:
+
+You are in a maze of twisty little passages, all alike.
+>s  
+Location 44:
+
+You are in a maze of twisty little passages, all alike.
+>s
+There are faint rustling noises from the darkness behind
+you.
+Location 50:
+
+You are in a maze of twisty little passages, all alike.
+>s
+Location 52:
+
+You are in a maze of twisty little passages, all alike.
+>n
+Location 55:
+
+You are in a maze of twisty little passages, all alike.
+>e  
+Location 57:
+
+You are on the brink of a thirty foot pit with a massive
+orange column down one wall.  You could climb down here but
+you could not get back up.  The maze continues at this level.
+>n  
+Location 83:
+
+You are in a maze of twisty little passages, all alike.
+>e  
+Location 84:
+
+You are in a maze of twisty little passages, all alike.
+>nw  
+Location 114:
+
+Dead end.
+
+The pirate's treasure chest is here!
+There are rare spices here!
+There is a golden chain lying in a heap on the floor!
+>take chest  
+Ok.
+>take all
+	spice	Ok.
+	chain	Ok.
+>se
+Location 84:
+
+You are in a maze of twisty little passages, all alike.
+>n  
+Location 57:
+
+You're at brink of pit.
+>d  
+Location 13:
+
+You're in bird chamber.
+>debris  
+Location 11:
+
+You're in debris room.
+>xyzzy  
+Location 3:
+
+You're inside building.
+
+A small velvet pillow lies on the floor.
+There is a large sparkling nugget of gold here!
+There are bars of silver here!
+There is precious jewelry here!
+There are many coins here!
+There is a large nest here, full of golden eggs!
+There is a jewel-encrusted trident here!
+There is a delicate, precious, ming vase here!
+There is an emerald here the size of a plover's egg!
+There is a platinum pyramid here, 8 inches on a side!
+Off to one side lies a glistening pearl!
+There is a persian rug spread out on the floor!
+>drop chest  
+Ok.
+>drop all
+	lamp	Ok.
+	rod	Ok.
+	diamonds	Ok.
+	spice	Ok.
+	chain	Ok.
+>get lamp
+Ok.
+>l
+Sorry, but I am not allowed to give more detail.  I will
+repeat the long description of your location.
+Location 3:
+
+You are inside a building, a well house for a large spring.
+
+A three foot black rod with a rusty star on an end lies nearby.
+A small velvet pillow lies on the floor.
+There is a large sparkling nugget of gold here!
+There are diamonds here!
+There are bars of silver here!
+There is precious jewelry here!
+There are many coins here!
+The pirate's treasure chest is here!
+There is a large nest here, full of golden eggs!
+There is a jewel-encrusted trident here!
+There is a delicate, precious, ming vase here!
+There is an emerald here the size of a plover's egg!
+There is a platinum pyramid here, 8 inches on a side!
+Off to one side lies a glistening pearl!
+There is a persian rug spread out on the floor!
+There are rare spices here!
+There is a golden chain lying in a heap on the floor!
+>plugh  
+Location 33:
+
+You're at "Y2".
+>s  
+Location 28:
+
+You are in a low N/S passage at a hole in the floor.  The
+hole goes down to an E/W passage.
+>d  
+Location 36:
+
+You're in dirty passage.
+>bedquilt  
+Location 65:
+
+You are in bedquilt, a long east/west passage with holes
+everywhere.  To explore at random select north, south, up
+or down.
+>e  
+Location 64:
+
+You're at complex junction.
+>e  
+Location 106:
+
+You are in an anteroom leading to a large passage to the
+east.  Small passages go west and up.  The remnants of
+recent digging are evident.  A sign in midair here says:
+       "Cave under construction beyond this point."
+              "Proceed at your own risk."
+             "Witt construction company"
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>take magaz  
+Ok.
+>e  
+Location 108:
+
+You are at Witt's end.  Passages lead off in ALL directions.
+>drop magaz
+Ok.
+>#input keyboard
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+A sepulchral voice reverberating through the cave says:
+"Cave closing soon.  All adventurers exit immediately
+through main office."
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+You have crawled around in some little holes and wound up back in the main
+passage.
+Location 108:
+
+You're at Witt's end.
+
+There are a few recent issues of "Spelunker Today" magazine
+here addresed to Witt.
+>n
+Location 106:
+
+You're in anteroom.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+The sepulchral voice intones, "The cave is now closed."  As
+the echoes fade, there is a blinding flash of light (and a
+small puff of orange smoke). . . . 
+As your eyes refocus you look around and find...
+Location 115:
+
+You are at the northeast end of an immense room, even
+larger than the giant room.  It appears to be a repository
+for the "adventure" program.  Massive torches far overhead
+bathe the room with smoky yellow light.  Scattered about
+you can be seen a pile of bottles (all of them empty), a
+nursery of young beanstalks murmuring quietly, a bed of
+oysters, a bundle of black rods with rusty stars on their ends,
+stacks of treasure maps, and a collection of brass lanterns.
+Off to one side a great many Dwarves are sleeping on the floor,
+snoringloudly.    A sign nearby reads:
+              "Do NOT disturb the Dwarves!"
+An immense mirror is hanging against one wall, and
+stretches to the other end of the room, where various
+other sundry objects can be glimpsed dimly in the distance.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>n
+There is no way to go that direction.
+>sw  
+Location 116:
+
+You are at the southwest end of the repository.  To one
+side is a pit full of fierce green snakes.  On the other
+side is a row of small wicker cages, each of which contains
+a little sulking bird.  In one corner is a bundle of
+black rods with rusty marks on their ends.  A large
+number of velvet pillows are scattered about on the floor.
+A vast mirror stretches off to the northeast.  At your
+feet is a large steel grate, next to which is a sign
+which reads:
+     "Treasure vault.  Keys in main office."
+
+The grate is locked.
+>take rod  
+Ok.
+>ne  
+Location 115:
+
+You're at ne end of repository.
+>drop rod  
+Ok.
+>sw
+Location 116:
+
+You're at sw end of repository.
+
+The grate is locked.
+>*cp cpBlast1
+>blast  
+There is a loud explosion, and a twenty-foot hole appears in
+the far wall, burying the Dwarves in the rubble.  You march
+through the hole and find yourself in the main office, where
+a cheering band of friendly elves carry the conquering
+adventurer off into the sunset.
+Treasures:          218
+Survival:           30
+Getting well in:    25
+Masters section:    25
+Bonus:              45
+Wizards section:    25
+The Wizard thanks you for returning his map.
+Bonus of:           25
+Score:                400
+Turns:                297
+
+You have been promoted from Adventurer Grandmaster! to Wizard Apprentice*
+
+To achieve the next higher rating, you need 50 more points.
+Press Enter to Exit :)>
