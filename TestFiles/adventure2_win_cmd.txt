@@ -1,0 +1,329 @@
+y               Answer to the intro question.
+
+#               Any non empty line which doesn't start with a letter is a comment
+!               This script tests all moves and move back commands for each non forced location.
+*               Type "AdventureCCaw1 -deletelog - adventure2_cmd.txt" to run this test.
+
+vocab 20        Set the vocabulary compare length to 20 characters.
+dwset 0         Disable dwarf activity so we don't get killed :)	
+*piset 0         Disable pirate activity so he doesn't steal. Also puts chest in right place.
+friendly 1      Turn on friendly to display locations and so the pirate won't steal what we need.
+hints 0         Turn hints off
+
+* 		OK, lets win this game
+
+building 
+get lamp            
+on                  
+plugh               
+plover              
+ne                  
+get pyramid
+s                   
+plover              
+s                   
+get silver
+n                   
+plugh               
+drop pyramid
+drop silver
+get water           
+plugh               
+s                   
+d                   
+bedquilt            
+slab                
+s                   
+d                   
+water plant
+u                   
+w                   
+u                   
+reservoir           
+get water
+s                   
+s                   
+d                   
+s                   
+d                   
+water plant
+u                   
+e                   
+d                   
+get oil
+u                   
+w                   
+d                   
+climb               
+w                   
+n                   
+oil door
+drop bottle         
+n                   
+get trident
+w                   
+d                   
+se                  
+n                   
+w                   
+drop trident        
+drop lamp
+e                   
+get emerald 
+w                   
+get trident
+get lamp
+nw                  
+s                   
+get vase
+se                  
+e                   
+get pillow          
+w                   
+ne                  
+e                   
+n                   
+open clam           
+d                   
+d
+get pearl
+u
+u                   
+s                   
+u                   
+e                   
+u                   
+n                   
+plugh               
+drop pillow         
+drop vase 
+drop trident
+drop pearl
+drop emerald
+xyzzy               
+get rod
+e                   
+get cage
+pit                 
+e                   
+drop rod            
+get bird
+get rod
+w                   
+d                   
+n                   
+free bird           
+drop cage           
+sw                  
+w                   
+kill dragon         
+yes                 
+get rug            
+e                   
+e                   
+w                   
+get coins     
+e                   
+s                   
+get jewelry
+n                   
+e                   
+w                   
+wave rod            
+drop rod            
+w                   
+get diamonds
+e                   
+e                   
+s                   
+get gold
+n                   
+y2                  
+d                   
+plugh               
+drop rug
+drop coins
+drop jewelry
+drop diamonds
+drop gold
+get food            
+get keys            
+plugh               
+s                   
+d                   
+bedquilt            
+w                   
+w                   
+w                   
+d                   
+climb               
+w                   
+get eggs            
+n                   
+n                   
+w                   
+d                   
+sw                  
+u                   
+toss eggs           
+ne                  
+ne                  
+barren              
+in                  
+feed bear           
+unlock chain        
+get chain       
+get bear            
+w                   
+fork                
+ne                  
+e                   
+get spices
+fork                
+w                   
+w                   
+sw                  
+free bear           
+sw                  
+sw                  
+d                   
+se                  
+se                  
+w                   
+w                   
+d                   
+climb bean stock :)              
+w                   
+fee
+fie
+foe
+foo                 
+get eggs            
+s                   
+d                   
+u                   
+w                   
+u                   
+s                   
+e                   
+e                   
+n                   
+n                   
+plugh               
+drop spices
+drop chain
+drop eggs
+plugh               
+s                   
+s                   
+e                   
+w                   
+w                   
+w                   
+s                   
+e                   
+s                   
+s                   
+s                   
+n                   
+e                   
+e                   
+nw                  
+get chest
+get all
+se                  
+n                   
+d                   
+e                   
+e                   
+xyzzy               
+drop chest
+drop all
+get lamp
+plugh               
+s                   
+d                   
+w                   
+d                   
+e                   
+get magazine        
+e                   
+drop magazine
+#input keyboard
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+sw  
+take rod  
+ne  
+drop rod  
+sw  
+cp cpBlast2
+blast  

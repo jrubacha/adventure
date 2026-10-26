@@ -1,0 +1,153 @@
+y               Answer the intro question.
+
+#               Any non empty line which doesn't start with a letter is a comment
+!               This script tests all moves and move back commands for each non forced location.
+*               Type "AdventureCCaw1 -deletelog - adventure1_cmd.txt" to run this test.
+
+*vocab 5         Set the vocabulary compare length to 5 characters.
+*dwset 0         Disable dwarf activity so we don't get killed :)	
+*piset 0         Disable pirate activity so he doesn't steal. Also puts chest in right place.
+*friendly 1      Turn on friendly to display locations and so the pirate won't steal what we need.
+*hints 0         Turn hints off
+
+* 		OK, lets win this game
+*	continue 
+
+rcp cp_P1of2
+s  
+d  
+u  
+w  
+u  
+s  
+kill dragon
+yes  
+take rug  
+e  
+e  
+n  
+n  
+plugh  
+drop rug  
+drop pillo  
+drop vase
+drop emera
+drop eggs
+xyzzy  
+take wand  
+pit  
+d  
+w  
+wave wand  
+w  
+take diamo  
+w  
+s  
+e  
+s  
+s
+s
+n
+e  
+n  
+e  
+nw  
+take chest  
+take all
+se
+n  
+d  
+debris  
+xyzzy  
+drop chest  
+drop all
+get lamp
+l
+plugh  
+s  
+d  
+bedquilt  
+e  
+e  
+take magaz  
+e  
+drop magaz
+#input keyboard
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+sw  
+take rod  
+ne  
+drop rod  
+sw
+*cp cpBlast1
+blast  
+
