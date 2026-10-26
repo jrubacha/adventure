@@ -1,0 +1,98 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: AdventureCCaw1 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/Adventure.res" /d "_DEBUG" "C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\Adventure.rc"" 
+Creating temporary file "C:\DOCUME~1\ALWHIN~1\LOCALS~1\Temp\RSP118E.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/AdventureCCaw1.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\Adventure.cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\AdvMessageData.CPP"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\CaveArray.Cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\DeathEndScore.Cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\Describe.Cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\DoTrPrObject.Cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\DwarvesAndPirate.Cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\English.CPP"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\GameState.cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\GameStateInitialize.cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\GameStateSaveRestore.cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\Hints.Cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\ItVerb.CPP"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\LongIntArray.Cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\MoveRequests.Cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\PlayGameTurn.CPP"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\RandomPercent.Cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\ShortIntArray.Cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\TravelArray.Cpp"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\TravelCave.CPP"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\TrVerb.CPP"
+"C:\MyGames\Adventure\AdventureCCaw1.4_Released_1.0.0.4\Source\Vocabulary.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ALWHIN~1\LOCALS~1\Temp\RSP118E.tmp" 
+Creating temporary file "C:\DOCUME~1\ALWHIN~1\LOCALS~1\Temp\RSP118F.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/AdventureCCaw1.pdb" /debug /machine:I386 /out:"Debug/AdventureCCaw1.exe" /pdbtype:sept 
+.\Debug\Adventure.obj
+.\Debug\AdvMessageData.obj
+.\Debug\CaveArray.obj
+.\Debug\DeathEndScore.obj
+.\Debug\Describe.obj
+.\Debug\DoTrPrObject.obj
+.\Debug\DwarvesAndPirate.obj
+.\Debug\English.obj
+.\Debug\GameState.obj
+.\Debug\GameStateInitialize.obj
+.\Debug\GameStateSaveRestore.obj
+.\Debug\Hints.obj
+.\Debug\ItVerb.obj
+.\Debug\LongIntArray.obj
+.\Debug\MoveRequests.obj
+.\Debug\PlayGameTurn.obj
+.\Debug\RandomPercent.obj
+.\Debug\ShortIntArray.obj
+.\Debug\TravelArray.obj
+.\Debug\TravelCave.obj
+.\Debug\TrVerb.obj
+.\Debug\Vocabulary.obj
+.\Debug\Adventure.res
+]
+Creating command line "link.exe @C:\DOCUME~1\ALWHIN~1\LOCALS~1\Temp\RSP118F.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+Adventure.cpp
+AdvMessageData.CPP
+CaveArray.Cpp
+DeathEndScore.Cpp
+Describe.Cpp
+DoTrPrObject.Cpp
+DwarvesAndPirate.Cpp
+English.CPP
+GameState.cpp
+GameStateInitialize.cpp
+GameStateSaveRestore.cpp
+Hints.Cpp
+ItVerb.CPP
+LongIntArray.Cpp
+MoveRequests.Cpp
+PlayGameTurn.CPP
+RandomPercent.Cpp
+ShortIntArray.Cpp
+TravelArray.Cpp
+TravelCave.CPP
+TrVerb.CPP
+Vocabulary.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+AdventureCCaw1.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

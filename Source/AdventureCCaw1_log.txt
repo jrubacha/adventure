@@ -1,0 +1,19 @@
+
+
+
+		Welcome to ADVENTURE!
+
+
+	Original development by Willie Crowther.
+	Major features added by Don Woods.
+	Conversion to BDS  C by J. R. Jaeger
+	Unix standardization by Jerry D. Pohl.
+
+	Conversion to MS VS6.0 C/C++ by Al Whinery of Maryland.
+	Borrowed some code from the John W. Kennedy conversion.
+	Added features to make the game more friendly.
+	Tried to make the code more friendly.
+
+		Would you like instructions?
+
+(y) or n : y or n : (y) : >

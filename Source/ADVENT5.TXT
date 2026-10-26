@@ -1,0 +1,387 @@
+#0
+command help verb
+#1
+take
+capture
+carry
+catch
+steal
+keep
+tote
+get
+
+Used to get object(s).
+Normally used with object such as "take keys" or "get all".
+Some objects like "bird" require you to have a cage.
+
+#2
+drop
+discard
+release
+dump
+free
+put
+
+Used to drop object(s).
+Normally used with object such as "drop keys" or "dump all" or "free bird".
+
+#3
+say
+mumble
+chant
+utter
+sing
+
+say any non-profain word and the wizard will echo it back to you.
+"say what"
+what
+ok.
+
+#4
+open
+unlock
+op
+ul
+un
+o
+u
+
+Used to open an object.
+Normally used with object such as "unlock grate" or "open door".
+Usually requires you to be carying keys.
+
+#5
+nothing
+
+Normaly does nothing.
+
+#6
+lock
+close
+cl
+c
+
+Used to close an object.
+Normally used with object such as "lock grate" or "close door".
+Usually requires you to be carying keys.
+
+#7
+on
+light
+
+Turns the lamp on so you can see in the dark areas of the cave.
+Need lamp.
+
+#8
+off
+extinguish
+
+Turns the lamp off to save batteries.
+Need lamp.
+
+#9
+wave
+shake
+swing
+
+Example: "wave wand"  need to have "rod".
+
+#10
+calm
+placate
+tame
+
+Example: "calm bear"
+
+#11
+walk
+continue
+explore
+proceed
+follow
+travel
+crawl
+goto
+jump
+turn
+run
+go
+
+Example: "go building"
+
+#12
+kill
+attack
+strike
+fight
+hit
+
+Example: "kill dragon"
+
+#13
+pour
+squirt
+empty
+drip
+
+Example: "pour water"
+
+#14
+eat
+consume
+devour
+
+Example: "eat food"
+
+#15
+drink
+slurp
+chug
+gulp
+
+Example: "drink water"
+
+#16
+rub
+polish
+clean
+
+Example: "rub lamp"
+
+#17
+throw
+pitch
+toss
+
+Example: "throw axe"
+
+#18
+q
+quit
+
+quits the game without saveing the current state.
+
+#19
+find
+seek
+
+Not sure what this does yet.
+Needs an object.
+Example: "find water" or "find dwarf"
+
+#20
+i
+inv
+inventory
+
+Describes what you are carrying.
+
+#21
+feed
+
+Example: "feed bear"
+
+#22
+fill
+refill
+
+Example: "fill bottle"
+
+#23
+blast
+detonate
+blowup
+ignite
+
+Explodes the dynomite if you are near it.
+You'll die if you're too near it.
+
+#24
+score
+
+Prints your current score.
+
+#25
+friendly
+
+Friendly mode can be toggled on/off by typing "friendly".
+Friendly mode can be set to 0(OFF) or 1(ON) by typing "friendly 0" or "friendly 1". 
+When Friendly mode is on, location numbers are displayed.
+
+#26
+brief
+
+When "brief" is set on (default) I never to repeat the
+full description of a place unless you explicitly ask me to.
+This can be toggled by typing "brief".
+
+#27
+read
+peruse
+
+Used to read messages from objects. Such as "read magazine".
+
+#28
+break
+destroy
+shatter
+smash
+
+Used to break an object such as "Break mirror".
+
+#29
+wake
+disturb
+scare
+
+"wake bear" or "scare dragon" may not be wize. :)
+
+#30
+suspend
+pause
+
+Saves the game state to a file then quits (exits) the program.
+
+#31
+hours
+
+Displays the Colosal Cave's operating hours.
+
+#32
+log
+
+"log delete" deletes the current log.
+
+Three different levels of logging can be set by typing "log".
+
+Log to file is now OFF. Nothing will be logged.
+Say "log" to set next log level.
+"log"
+Log to file is now 1. Typed commands will be logged.
+Say "log" to set next log level.
+"log"
+Log to file is now 2. All input and output will be logged.
+Say, "log" to turn OFF logging.
+"log"
+Log to file is now OFF. Nothing will be logged.
+Say "log" to set next log level.
+
+#33
+describe
+examine
+touch
+look
+l
+
+Used to repeat the discription of a location.
+
+#37
+water
+
+"water plant" 
+
+#38
+oil
+
+"oil door"
+
+#39
+map
+
+Requires map.
+
+#40
+fee
+Magic word.
+
+#41
+fie
+Magic word.
+
+#42
+foe
+Magic word.
+
+#43
+foo
+Magic word.
+
+#44
+fum
+Magic word.
+
+#50
+checkpoint
+save
+cp
+
+You can CheckPoint (cp) and Restore (rcp) without quiting game.
+Example:
+ play some good moves.
+ cp cp1	- saves cp1.adv     -- this is now the default for rcp.
+ play some bad moves...
+ rcp	- restores cp1.adv
+ play some good moves...
+ cp cp2	- saves cp2.adv    -- this is now the default for rcp.
+ get killed by a dwarf.
+ rcp	- restores cp2.adv
+ play some and hit a dead end.
+ play some bad moves...
+ rcp cp1	- restores cp1.adv   -- this is now the default for rcp.
+
+#51
+restore
+rcp
+
+You can CheckPoint (cp) and Restore (rcp) without quiting game.
+Example: make some good moves. "cp cp1"  make some bad moves. "rcp cp1".
+Type "help cp" for more detail.
+
+#52
+reset
+restart
+
+resets the game to the beginning.
+
+#53
+crypt
+
+Used to enter the "Crypt".
+Requires password and special knowledge.
+
+#54
+input
+
+"input" file name will process commands from an input file.
+Automaticly switches back to "input keyboard" when the end of file is reached.
+"input" or "input keyboard" can be used in an input file to switch back to keyboard.
+
+#55
+vocablength
+vocabl
+vocab
+wordlength
+wordl
+
+Toggles the vocabulary word compare length between 5 and 20.
+This was added to be compatible with the orignal versions
+which only looked at the first 5 characters of each word.
+When the length is set to 5, north and northwest look the same
+so you would have to use n and nw to insure the proper match.
+or
+Say "vocab 4" or some number > 3 and < 20 for specfic compare length.
+
+#56
+Say "hints" to toggle the option to offer hints OFF/ON.
+
+#57
+Say "autocp" to toggle the option to auto check point OFF/ON.
+When autocp is ON, the current state is saved after each successfull movement.
+If you get killed, answer yes to reincarnation then type "rcp" to restore
+the game to where you were before you were killed.
+The *.adv files are stored in a directory called AutoCp.
+If you want to restore to an earlier point, type rcp AutoCp\filename.
+
+
+#58
+Reserved 58
