@@ -1,0 +1,30 @@
+{
+  "_comment": "One entry per TestFiles .bat file. 'runs' are the exe invocations in order, sharing one folder; 'stdin' is what was typed at the keyboard after the script ran out (the reference logs record it; T1.Mem's script ends with 'input keyboard' and the tester typed 'blast'); 'reference' is the Windows log in TestDirectory (null = no reference, native/wasm parity only). Script names are written with their on-disk case (the .bat files rely on Windows ignoring case).",
+  "cases": [
+    { "name": "T1.Win", "bat": "Test1_win.bat", "log": "AdventureCCaw1_log_T1.Win.txt",
+      "runs": [ { "args": ["-l", "AdventureCCaw1_log_T1.Win.txt", "-deleteLog", "-i", "adventure1_win_cmd.txt"], "stdin": "\n" } ],
+      "reference": "AdventureCCaw1_log_T1.Win.txt" },
+    { "name": "T1.Mem", "bat": "Test1_mem.bat", "log": "AdventureCCaw1_log_T1.Mem.txt",
+      "runs": [ { "args": ["-l", "AdventureCCaw1_log_T1.Mem.txt", "-deleteLog", "-i", "adventure1_mem_cmd.txt"], "stdin": "blast\n\n" } ],
+      "reference": "AdventureCCaw1_log_T1.Mem.txt" },
+    { "name": "T1.p1_p2", "bat": "Test1_p1_p2.bat", "log": "AdventureCCaw1_log_T1.p1_p2.txt",
+      "runs": [ { "args": ["-l", "AdventureCCaw1_log_T1.p1_p2.txt", "-deleteLog", "-i", "adventure1_p1_cmd.txt"], "stdin": "\n" },
+               { "args": ["-l", "AdventureCCaw1_log_T1.p1_p2.txt", "-i", "adventure1_p2_cmd.txt"], "stdin": "\n" } ],
+      "reference": "AdventureCCaw1_log_T1.p1_p2.txt" },
+    { "name": "T1_Die", "bat": "Test1_Die_NoDie.bat", "log": "AdventureCCaw1_log_T1_Die.txt",
+      "runs": [ { "args": ["-l", "AdventureCCaw1_log_T1_Die.txt", "-deleteLog", "-i", "TestMovesDie_cmd.TXT"], "stdin": "\n" } ],
+      "reference": "AdventureCCaw1_log_T1_Die.txt" },
+    { "name": "T1_NoDie", "bat": "Test1_Die_NoDie.bat", "log": "AdventureCCaw1_log_T1_NoDie.txt",
+      "runs": [ { "args": ["-l", "AdventureCCaw1_log_T1_NoDie.txt", "-deleteLog", "-i", "TestMovesNoDie_cmd.TXT"], "stdin": "\n" } ],
+      "reference": "AdventureCCaw1_log_T1_NoDie.txt" },
+    { "name": "SingleWord", "bat": "SingleWord_Test.bat", "log": "AdventureCCaw1_log_SingleWord_cmd.txt",
+      "runs": [ { "args": ["-l", "AdventureCCaw1_log_SingleWord_cmd.txt", "-deleteLog", "-i", "SingleWord_cmd.txt"], "stdin": "\n" } ],
+      "reference": "AdventureCCaw1_log_SingleWord_cmd.txt" },
+    { "name": "DualWord", "bat": "DualWord_Test.bat", "log": "AdventureCCaw1_log_DualWord_cmd.txt",
+      "runs": [ { "args": ["-l", "AdventureCCaw1_log_DualWord_cmd.txt", "-deleteLog", "-i", "DualWord_cmd.txt"], "stdin": "\n" } ],
+      "reference": "AdventureCCaw1_log_DualWord_cmd.txt" },
+    { "name": "T2.Win", "bat": null, "log": "AdventureCCaw1_log_T2.Win.txt",
+      "runs": [ { "args": ["-l", "AdventureCCaw1_log_T2.Win.txt", "-deleteLog", "-i", "adventure2_win_cmd.txt"], "stdin": "\n" } ],
+      "reference": null }
+  ]
+}
