@@ -23,11 +23,11 @@ const known = JSON.parse(fs.readFileSync(path.join(here, 'known-differences.json
 
 const targets = {
   native: { cmd: path.join(web, 'build/native/adventure'), pre: [] },
-  wasm: { cmd: process.execPath, pre: [path.join(web, 'build/node/adventure.js')] },
+  wasm: { cmd: process.execPath, pre: [path.join(here, 'wasm-driver.mjs')] },
 };
 const targetNames = nativeOnly ? ['native'] : ['native', 'wasm'];
 for (const t of targetNames) {
-  const file = t === 'native' ? targets[t].cmd : targets[t].pre[0];
+  const file = t === 'native' ? targets[t].cmd : path.join(web, 'build/web/adventure.js');
   if (!fs.existsSync(file)) {
     console.error(`Missing ${path.relative(repo, file)}; run web/build-native.sh and web/build.sh first.`);
     process.exit(2);
@@ -49,8 +49,16 @@ function runCase(c, target) {
   let stdout = '';
   for (const run of c.runs) {
     const t = targets[target];
+    let stdin = run.stdin;
+    if (run.stdinScript) {
+      // Type a script at the keyboard: drop its comment lines (only command
+      // files skip those) and the CRs a console would not send.
+      const lines = fs.readFileSync(path.join(repo, 'TestFiles', run.stdinScript), 'latin1')
+        .replace(/\r/g, '').split('\n').filter((l) => l === '' || /^[A-Za-z]/.test(l));
+      stdin = lines.join('\n') + '\n' + run.stdin;
+    }
     const r = spawnSync(t.cmd, [...t.pre, ...run.args], {
-      cwd: dir, input: run.stdin, argv0: 'AdventureCCaw1.exe',
+      cwd: dir, input: stdin, argv0: 'AdventureCCaw1.exe',
       maxBuffer: 1 << 28, timeout: 600000, encoding: 'latin1',
     });
     if (r.error) throw r.error;
@@ -58,7 +66,10 @@ function runCase(c, target) {
   }
   const logFile = path.join(dir, c.log);
   const log = fs.existsSync(logFile) ? fs.readFileSync(logFile) : Buffer.alloc(0);
-  return { log, stdout: Buffer.from(stdout, 'latin1') };
+  const saves = {};
+  for (const f of fs.readdirSync(dir))
+    if (/\.adv$/i.test(f) && !fs.existsSync(path.join(repo, 'TestFiles', f))) saves[f] = fs.readFileSync(path.join(dir, f));
+  return { log, stdout: Buffer.from(stdout, 'latin1'), saves };
 }
 
 function firstDiff(a, b) {
@@ -89,7 +100,11 @@ for (const c of cases) {
   if (results.wasm) {
     const logSame = results.wasm.log.equals(results.native.log);
     const outSame = results.wasm.stdout.equals(results.native.stdout);
-    if (logSame && outSame) console.log(`PASS  ${c.name}: wasm log and screen output match native byte-for-byte (${results.native.log.length} bytes)`);
+    const names = [...new Set([...Object.keys(results.native.saves), ...Object.keys(results.wasm.saves)])].sort();
+    const badSaves = names.filter((f) => !(results.native.saves[f] && results.wasm.saves[f] && results.native.saves[f].equals(results.wasm.saves[f])));
+    if (badSaves.length) { failures++; console.log(`FAIL  ${c.name}: save files differ between native and wasm: ${badSaves.join(', ')}`); }
+    const saveNote = names.length ? `, ${names.length} save file(s) identical` : '';
+    if (logSame && outSame) console.log(`PASS  ${c.name}: wasm log and screen output match native byte-for-byte (${results.native.log.length} bytes${saveNote})`);
     else {
       failures++;
       if (!logSame) console.log(`FAIL  ${c.name}: wasm log differs from native\n      ${firstDiff(results.wasm.log, results.native.log)}`);
