@@ -8,9 +8,9 @@
 
   --bg: #0b0d0b;          /* page */
   --panel: #151915;       /* header, dock, dialogs */
-  --text: #d6ecd0;        /* game text: 15.5:1 on --bg */
-  --muted: #a9bfa3;       /* hints: 9.6:1 on --bg, 8.8:1 on --panel */
-  --accent: #8fe07a;      /* prompt and focus: 12:1 on --bg */
+  --text: #d6ecd0;        /* game text: 15.6:1 on --bg */
+  --muted: #a9bfa3;       /* hints: 9.9:1 on --bg, 9.0:1 on --panel */
+  --accent: #8fe07a;      /* prompt and focus: 12.2:1 on --bg, 11.1:1 on --panel */
   --line: #2c352b;
   --btn: #1e241d;
   --btn-hover: #283027;
@@ -22,14 +22,14 @@
 :root[data-theme="light"] {
   --bg: #f6f1e3;
   --panel: #ebe4d0;
-  --text: #1f1d18;        /* 15.4:1 on --bg */
-  --muted: #45402f;       /* 8.9:1 on --bg, 7.9:1 on --panel */
-  --accent: #2c5a1c;      /* 7.6:1 on --bg */
+  --text: #1f1d18;        /* 14.9:1 on --bg */
+  --muted: #45402f;       /* 9.2:1 on --bg, 8.2:1 on --panel */
+  --accent: #24501a;      /* 8.3:1 on --bg, 7.4:1 on --panel */
   --line: #cfc5aa;
   --btn: #fbf8ef;
   --btn-hover: #f1ead6;
   --btn-text: #1f1d18;
-  --primary: #2c5a1c;
+  --primary: #24501a;      /* button text 8.8:1 */
   --primary-text: #fbf8ef;
   --shadow: rgba(60, 50, 20, 0.25);
 }

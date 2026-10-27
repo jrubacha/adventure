@@ -75,7 +75,7 @@
   // prompt is the unfinished last line. While the game waits for a typed line,
   // that unfinished line is shown as the input prompt instead of in the output.
   const term = {
-    line: '', col: 0, hidden: false, pending: '', atBottom: true,
+    line: '', col: 0, hidden: false, pending: '',
     write(s) {
       for (let i = 0; i < s.length; i++) {
         const ch = s[i];
@@ -94,15 +94,21 @@
       this.col = 0;
     },
     render() {
-      this.atBottom = isAtBottom();
       if (this.pending) {
         outEl.insertBefore(document.createTextNode(this.pending), partialEl);
         this.pending = '';
       }
+      // A short prompt ("y or n : (y) : >") sits beside the input; a long
+      // unfinished line stays in the output and only its ">" moves down.
       const waitingForLine = game && game.waiting && !this.hidden;
-      partialEl.textContent = waitingForLine || this.hidden ? '' : this.line;
-      promptEl.textContent = waitingForLine ? (this.line || '>') : '>';
-      if (this.atBottom) scrollToBottom();
+      let shown = this.hidden ? '' : this.line, prompt = '>';
+      if (waitingForLine) {
+        if (shown.length <= 48) { prompt = shown || '>'; shown = ''; }
+        else if (shown.endsWith('>')) shown = shown.slice(0, -1);
+      }
+      partialEl.textContent = shown;
+      promptEl.textContent = prompt;
+      if (follow) scrollToBottom();
       updateJump();
     },
     echo(text) {               // what the player typed, after the prompt, as the log has it
@@ -118,12 +124,28 @@
     },
   };
 
+  // Output follows the newest text until the student scrolls up to reread;
+  // scrolling back down (or "Jump to newest", or typing) resumes following.
+  let follow = true;
   function isAtBottom() { return screenEl.scrollHeight - screenEl.scrollTop - screenEl.clientHeight < 48; }
   function scrollToBottom() { screenEl.scrollTop = screenEl.scrollHeight; }
-  function updateJump() { jumpEl.hidden = isAtBottom(); }
-  screenEl.addEventListener('scroll', updateJump, { passive: true });
-  jumpEl.addEventListener('click', () => { scrollToBottom(); updateJump(); focusInput(); });
-  window.addEventListener('resize', () => { if (term.atBottom) scrollToBottom(); updateJump(); });
+  function updateJump() { jumpEl.hidden = follow || isAtBottom(); }
+  let lastScrollTop = 0;
+  screenEl.addEventListener('scroll', () => {
+    // Only the student's own scrolling (up) stops following.
+    if (screenEl.scrollTop < lastScrollTop - 2 && !isAtBottom()) follow = false;
+    else if (isAtBottom()) follow = true;
+    lastScrollTop = screenEl.scrollTop;
+    updateJump();
+  }, { passive: true });
+  jumpEl.addEventListener('click', () => { follow = true; scrollToBottom(); updateJump(); focusInput(); });
+  // Text size changes, the map/yes-no buttons appearing and window resizes
+  // all change the output's size; keep the newest text in view.
+  if (typeof ResizeObserver === 'function') {
+    const ro = new ResizeObserver(() => { if (follow) scrollToBottom(); updateJump(); });
+    ro.observe(screenEl);
+    ro.observe(outEl);
+  }
 
   // ---- the running game ----
   let game = null;          // { mod, gen, waiting, waitingKey, transcript, ... }
@@ -142,7 +164,6 @@
             state.startupQueued = true;
             state.queue = state.mode === 'new' ? S.startupCommands.map(String) : [];
           }
-          persistTranscript(state);
         }
         if (kind === KIND_EXIT && !state.savedThisTurn) clearAutosave();
         if (state.queue.length) {           // teacher's startup commands, run out of sight
@@ -189,6 +210,7 @@
         if (!live()) return;
         const data = state.mod.FS.readFile('/' + path);
         store.set('autosave', JSON.stringify({ v: 1, savedAt: Date.now(), title: S.title, adv: toBase64(data) }));
+        persistTranscript(state);
       },
       allowInput() { return !!S.allowInputCommand; },
       autosaveEnabled() { return !!S.autosave; },
@@ -277,7 +299,7 @@
     text = String(text).replace(/[\r\n]/g, ' ').slice(0, 900);
     if (text.trim() && (!history.length || history[history.length - 1] !== text)) history.push(text);
     historyPos = history.length;
-    term.atBottom = true;
+    follow = true;
     term.echo(text);
     scrollToBottom();
     updateControls();
