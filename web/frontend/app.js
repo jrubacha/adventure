@@ -165,7 +165,6 @@
             state.queue = state.mode === 'new' ? S.startupCommands.map(String) : [];
           }
         }
-        if (kind === KIND_EXIT && !state.savedThisTurn) clearAutosave();
         if (state.queue.length) {           // teacher's startup commands, run out of sight
           term.hidden = true;
           const line = state.queue.shift();
@@ -279,7 +278,9 @@
     game.ended = true;
     game.waiting = null;
     game.waitingKey = null;
-    clearAutosave();
+    // A finished game can't be continued, but "suspend" (save, then quit)
+    // keeps the autosave so the student picks up where they stopped.
+    if (!game.savedThisTurn) clearAutosave();
     updateControls();
     term.render();
     $('btn-again').focus();

@@ -170,6 +170,32 @@ function consoleText(s) {
   await ctx.close();
 }
 
+// 3b. suspend (save and quit) keeps Continue; quitting does not -----------
+{
+  const ctx = await newContext();
+  let p = await open(ctx);
+  await play(p, ['n', 'in', 'take lamp']);
+  const dl = p.waitForEvent('download');
+  await type(p, 'suspend lunch');
+  check('suspend downloads the save', (await dl).suggestedFilename() === 'colossal-cave-lunch.adv');
+  await p.press('#cmd', 'Enter');
+  await p.waitForFunction(() => window.__adventure.state().ended);
+  await p.close();
+  p = await open(ctx);
+  await p.waitForSelector('#dlg-start[open]');
+  await p.click('#start-continue');
+  await ready(p);
+  check('after suspend, Continue resumes the game', (await since(p, '', () => play(p, ['inventory']))).includes('Brass lantern'));
+  await play(p, ['quit', 'y']);
+  await p.press('#cmd', 'Enter');
+  await p.waitForFunction(() => window.__adventure.state().ended);
+  await p.close();
+  p = await open(ctx);
+  await ready(p);
+  check('after quitting, reopening starts a new game', !(await p.isVisible('#dlg-start')) && (await outText(p)).includes('Welcome to ADVENTURE!'));
+  await ctx.close();
+}
+
 // 4. Save to file, New game, restore from that file ---------------------
 {
   const ctx = await newContext();

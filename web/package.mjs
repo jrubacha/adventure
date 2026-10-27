@@ -3,7 +3,6 @@
 // self-contained page: dist/colossal-cave.html. Run by build.sh.
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const web = path.dirname(fileURLToPath(import.meta.url));
@@ -14,12 +13,7 @@ const MAX_BYTES = 1.5 * 1024 * 1024;
 // "</script" inside inlined code would end the <script> element early.
 const scriptSafe = (js) => js.replace(/<\/(script)/gi, '<\\/$1').replace(/<!--/g, '<\\!--');
 
-let version = 'dev';
-try {
-  version = execSync('git describe --tags --always --dirty', { cwd: repo, stdio: ['ignore', 'pipe', 'ignore'] })
-    .toString().trim();
-} catch (e) { /* not a git checkout */ }
-version += ', ' + new Date().toISOString().slice(0, 10);
+const version = 'v' + read('VERSION').trim();
 
 const parts = {
   TEACHER_SETTINGS: read('frontend/teacher-settings.js').trim(),

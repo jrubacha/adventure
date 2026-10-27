@@ -1,0 +1,8 @@
+{
+  "name": "colossal-cave-web",
+  "private": true,
+  "description": "Browser build of AdventureCCaw1. Only the tests need these packages.",
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}
