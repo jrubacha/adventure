@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colossal Cave Adventure</title>
+<script>
+{{TEACHER_SETTINGS}}
+</script>
+<!--
+  Colossal Cave Adventure: a browser build of AdventureCCaw1 by Al Whinery
+  (freeware). Everything the game needs is inside this one file; it makes no
+  network requests. Build {{VERSION}}. Source: https://github.com/jrubacha/adventure
+-->
+<style>
+{{STYLES}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="bar">
+    <h1 id="title">Colossal Cave Adventure</h1>
+    <nav class="tools" aria-label="Game controls">
+      <button type="button" id="btn-save" title="Save your game to a file">Save</button>
+      <button type="button" id="btn-load" title="Load a saved game file">Load</button>
+      <button type="button" id="btn-transcript" title="Download everything you've typed and seen">Transcript</button>
+      <button type="button" id="btn-new" title="Start over from the beginning">New game</button>
+      <span class="group">
+        <button type="button" id="btn-smaller" title="Smaller text" aria-label="Smaller text">A&minus;</button>
+        <button type="button" id="btn-bigger" title="Bigger text" aria-label="Bigger text">A+</button>
+      </span>
+      <button type="button" id="btn-theme" title="Switch between dark and light">Light</button>
+      <button type="button" id="btn-help" title="How to play">Help</button>
+      <button type="button" id="btn-about" title="About this game">About</button>
+    </nav>
+  </header>
+
+  <main id="screen" tabindex="-1">
+    <pre id="out" role="log" aria-live="polite"><span id="partial"></span></pre>
+  </main>
+
+  <button type="button" id="jump" class="jump" hidden>Jump to newest &darr;</button>
+
+  <footer class="dock">
+    <div id="keys" class="choices" hidden>
+      <span class="hint">Map:</span>
+      <button type="button" data-key="+">+ Next place</button>
+      <button type="button" data-key="-">&minus; Previous place</button>
+      <button type="button" data-key="&#13;">Done</button>
+    </div>
+    <div id="yesno" class="choices" hidden>
+      <button type="button" data-answer="y">Yes</button>
+      <button type="button" data-answer="n">No</button>
+    </div>
+    <div id="ended" class="choices" hidden>
+      <span class="hint">The game has ended.</span>
+      <button type="button" id="btn-again">Start a new game</button>
+      <button type="button" id="btn-transcript2">Download transcript</button>
+    </div>
+    <form id="inputrow" class="inputrow" autocomplete="off">
+      <label for="cmd" id="prompt" class="prompt">&gt;</label>
+      <input id="cmd" type="text" autocomplete="off" autocapitalize="off" autocorrect="off"
+             spellcheck="false" enterkeyhint="send" maxlength="200" aria-label="Your command">
+    </form>
+  </footer>
+</div>
+
+<dialog id="dlg-start" class="dlg">
+  <h2>Welcome back</h2>
+  <p>You have a game in progress<span id="start-when"></span>.</p>
+  <div class="actions">
+    <button type="button" class="primary" id="start-continue">Continue your game</button>
+    <button type="button" id="start-new">Start a new game</button>
+  </div>
+</dialog>
+
+<dialog id="dlg-new" class="dlg">
+  <h2>Start a new game?</h2>
+  <p>Your current game will be gone. To keep it, close this and use <b>Save</b> first.</p>
+  <div class="actions">
+    <button type="button" class="primary" id="new-yes">Start a new game</button>
+    <button type="button" id="new-transcript">Download transcript first</button>
+    <button type="button" id="new-cancel">Cancel</button>
+  </div>
+</dialog>
+
+<dialog id="dlg-pick" class="dlg">
+  <h2 id="pick-title">Choose your saved game</h2>
+  <p>The game is looking for <b id="pick-name"></b>. <span id="pick-hint"></span></p>
+  <input type="file" id="pick-file" hidden>
+  <div class="actions">
+    <button type="button" class="primary" id="pick-choose">Choose file&hellip;</button>
+    <button type="button" id="pick-cancel">Cancel</button>
+  </div>
+</dialog>
+
+<dialog id="dlg-help" class="dlg wide">
+  <h2>How to play</h2>
+  <p>You explore a cave by typing short commands, then pressing <kbd>Enter</kbd>.
+     Use one or two words: a verb and maybe a thing.</p>
+  <table class="cheat">
+    <tr><th>Move</th><td><code>go north</code> or just <code>n</code>, <code>s</code>, <code>e</code>, <code>w</code>,
+      <code>up</code>, <code>down</code>, <code>in</code>, <code>out</code></td></tr>
+    <tr><th>Look around</th><td><code>look</code></td></tr>
+    <tr><th>Pick up / drop</th><td><code>get lamp</code>, <code>drop lamp</code></td></tr>
+    <tr><th>What you carry</th><td><code>inventory</code> (or <code>i</code>)</td></tr>
+    <tr><th>Use things</th><td><code>light lamp</code>, <code>open grate</code>, <code>unlock grate</code></td></tr>
+    <tr><th>Your score</th><td><code>score</code></td></tr>
+    <tr><th>Game help</th><td><code>help</code>, <code>info</code>, and <code>help help</code> for every verb</td></tr>
+  </table>
+  <p><kbd>&uarr;</kbd> and <kbd>&darr;</kbd> bring back commands you typed earlier.
+     Your game saves itself after every turn, so you can close the laptop and pick it up next class.
+     <b>Save</b> also gives you a file to keep as a backup.</p>
+  <div class="actions"><button type="button" class="primary" data-close>Got it</button></div>
+</dialog>
+
+<dialog id="dlg-about" class="dlg">
+  <h2>About</h2>
+  <p>This is a browser build of AdventureCCaw1 by Al Whinery, freeware, based on the original
+     Colossal Cave Adventure by Willie Crowther and Don Woods.
+     Source: <a href="https://github.com/jrubacha/adventure" target="_blank" rel="noopener">github.com/jrubacha/adventure</a></p>
+  <p class="small">Build {{VERSION}}</p>
+  <div class="actions"><button type="button" class="primary" data-close>Close</button></div>
+</dialog>
+
+<script>
+{{ENGINE}}
+</script>
+<script>
+{{APP}}
+</script>
+</body>
+</html>

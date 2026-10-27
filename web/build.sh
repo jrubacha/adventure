@@ -3,6 +3,8 @@
 #   1. compiles Source/ + the platform layer to WebAssembly with Emscripten
 #      (web/build/web/adventure.js, wasm and game data inlined), and
 #   2. packages it with the front end into dist/colossal-cave.html.
+# The wasm is inlined as base64: raw binary encoding would put NUL bytes
+# inside a <script> element, which HTML parsers replace.
 # Uses emcc from PATH, or installs a pinned emsdk into web/.emsdk first.
 set -euo pipefail
 source "$(dirname "$0")/common.sh"
@@ -35,7 +37,7 @@ em++ -O2 -o "$OUT/adventure.js" "${objs[@]}" "${embeds[@]}" \
   --pre-js "$WEB_DIR/io/adv_pre.js" \
   -sASYNCIFY=1 -sASYNCIFY_STACK_SIZE=65536 \
   -sMODULARIZE=1 -sEXPORT_NAME=createAdventure \
-  -sSINGLE_FILE=1 -sENVIRONMENT=web,node \
+  -sSINGLE_FILE=1 -sSINGLE_FILE_BINARY_ENCODE=0 -sENVIRONMENT=web,node \
   -sINVOKE_RUN=0 -sEXIT_RUNTIME=1 -sALLOW_MEMORY_GROWTH=1 -sFORCE_FILESYSTEM=1 \
   -sEXPORTED_RUNTIME_METHODS=FS,ENV,callMain
 echo "Built $OUT/adventure.js ($(wc -c < "$OUT/adventure.js") bytes)"

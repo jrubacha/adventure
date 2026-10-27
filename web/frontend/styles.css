@@ -1,0 +1,215 @@
+/* Colossal Cave Adventure: full-window terminal. Dark retro theme by default,
+   light "paper" theme via [data-theme="light"]. All text colors are 7:1 or
+   better against their background. */
+:root {
+  --font-size: 18px;
+  --mono: "Cascadia Mono", Consolas, "Lucida Console", "Courier New", monospace;
+  --ui: "Segoe UI", system-ui, sans-serif;
+
+  --bg: #0b0d0b;          /* page */
+  --panel: #151915;       /* header, dock, dialogs */
+  --text: #d6ecd0;        /* game text: 15.5:1 on --bg */
+  --muted: #a9bfa3;       /* hints: 9.6:1 on --bg, 8.8:1 on --panel */
+  --accent: #8fe07a;      /* prompt and focus: 12:1 on --bg */
+  --line: #2c352b;
+  --btn: #1e241d;
+  --btn-hover: #283027;
+  --btn-text: #e3f2de;
+  --primary: #8fe07a;
+  --primary-text: #0b0d0b;
+  --shadow: rgba(0, 0, 0, 0.6);
+}
+:root[data-theme="light"] {
+  --bg: #f6f1e3;
+  --panel: #ebe4d0;
+  --text: #1f1d18;        /* 15.4:1 on --bg */
+  --muted: #45402f;       /* 8.9:1 on --bg, 7.9:1 on --panel */
+  --accent: #2c5a1c;      /* 7.6:1 on --bg */
+  --line: #cfc5aa;
+  --btn: #fbf8ef;
+  --btn-hover: #f1ead6;
+  --btn-text: #1f1d18;
+  --primary: #2c5a1c;
+  --primary-text: #fbf8ef;
+  --shadow: rgba(60, 50, 20, 0.25);
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ui);
+  overflow: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* ---- header ---- */
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 16px;
+  padding: 6px 16px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+.bar h1 {
+  margin: 0;
+  font: 600 16px/1.3 var(--ui);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.tools { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
+.tools .group { display: inline-flex; gap: 2px; }
+
+button {
+  font: 500 14px/1 var(--ui);
+  color: var(--btn-text);
+  background: var(--btn);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 7px 10px;
+  min-height: 34px;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { background: var(--btn-hover); }
+button:focus-visible, input:focus-visible, a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+button:disabled { opacity: 0.45; cursor: default; }
+button.primary {
+  background: var(--primary);
+  color: var(--primary-text);
+  border-color: var(--primary);
+  font-weight: 600;
+}
+button.primary:hover:not(:disabled) { filter: brightness(1.08); background: var(--primary); }
+
+/* ---- output ---- */
+#screen {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px 16px 8px;
+  outline: none;
+  overscroll-behavior: contain;
+}
+#out {
+  margin: 0 auto;
+  max-width: 82ch;
+  font-family: var(--mono);
+  font-size: var(--font-size);
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 8;
+  color: var(--text);
+}
+
+.jump {
+  position: fixed;
+  right: 24px;
+  bottom: calc(var(--font-size) * 2 + 64px);
+  box-shadow: 0 2px 10px var(--shadow);
+  z-index: 2;
+}
+
+/* ---- input dock ---- */
+.dock {
+  flex: 0 0 auto;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  padding: 8px 16px 10px;
+}
+.choices, .inputrow { max-width: 82ch; margin: 0 auto; }
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.choices button { font-size: 15px; min-height: 40px; padding: 8px 14px; }
+.hint { color: var(--muted); font-size: 14px; margin-right: 4px; }
+
+.inputrow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5ch;
+  font-family: var(--mono);
+  font-size: var(--font-size);
+}
+.prompt {
+  color: var(--accent);
+  white-space: pre-wrap;
+  flex: 0 1 auto;
+  max-width: 70%;
+  overflow-wrap: anywhere;
+}
+#cmd {
+  flex: 1 1 8ch;
+  min-width: 8ch;
+  font: inherit;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--line);
+  padding: 4px 2px;
+  caret-color: var(--accent);
+}
+#cmd:focus { outline: none; border-bottom-color: var(--accent); }
+#cmd:disabled { opacity: 0.5; }
+
+/* ---- dialogs ---- */
+.dlg {
+  max-width: min(560px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 40px var(--shadow);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.dlg.wide { max-width: min(680px, calc(100vw - 32px)); }
+.dlg::backdrop { background: rgba(0, 0, 0, 0.55); }
+.dlg h2 { margin: 0 0 8px; font-size: 20px; }
+.dlg p { margin: 8px 0; }
+.dlg .small { color: var(--muted); font-size: 13px; }
+.dlg a { color: var(--accent); }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.actions button { font-size: 15px; min-height: 40px; padding: 8px 16px; }
+.cheat { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 15px; }
+.cheat th, .cheat td { text-align: left; vertical-align: top; padding: 5px 8px; border-top: 1px solid var(--line); }
+.cheat th { white-space: nowrap; font-weight: 600; color: var(--muted); }
+code, kbd {
+  font-family: var(--mono);
+  font-size: 0.92em;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+@media (max-width: 720px) {
+  .bar { padding: 6px 12px; }
+  #screen { padding: 12px 12px 6px; }
+  .dock { padding: 8px 12px 10px; }
+  button { padding: 6px 8px; font-size: 13px; }
+}
