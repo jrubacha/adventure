@@ -16,6 +16,7 @@
 
 #include <stdarg.h>
 #include <stdint.h>
+#include <dirent.h>
 
 #undef fopen
 #undef fclose
@@ -66,13 +67,73 @@ struct AdvOpenFile
 
 static AdvOpenFile s_files[32];
 
+/*
+	Windows path rules: "\" separates folders and names are not case
+	sensitive, so an existing file is found whatever case is used.
+	The save/restore name prompts keep the newline from the Enter key
+	("mygame\n.adv"); Windows can't create such a name, so typing "save"
+	and answering the prompt always failed in the exe. The newline is
+	dropped here so that prompt works (see web/README.md).
+*/
 static void FixPath( const char* name, char* out )
 {
-	strncpy( out, name, _MAX_PATH );
-	out[_MAX_PATH] = '\0';
-	for ( char* p = out; *p; ++p )
-		if ( *p == '\\' )
-			*p = '/';
+	int n = 0;
+	for ( const char* p = name; *p && n < _MAX_PATH; ++p )
+	{
+		if ( *p == '\n' || *p == '\r' )
+			continue;
+		out[n++] = ( *p == '\\' ) ? '/' : *p;
+	}
+	out[n] = '\0';
+
+	struct stat st;
+	if ( stat( out, &st ) == 0 )
+		return;
+
+	// Look for the same name in a different case, one folder at a time.
+	char szFound[_MAX_PATH+1];
+	const char* p = out;
+	if ( *p == '/' )
+	{
+		strcpy( szFound, "/" );
+		++p;
+	}
+	else
+		szFound[0] = '\0';
+
+	while ( *p )
+	{
+		const char* pEnd = strchr( p, '/' );
+		size_t nLen = pEnd ? (size_t)( pEnd - p ) : strlen( p );
+		char szPart[_MAX_PATH+1];
+		memcpy( szPart, p, nLen );
+		szPart[nLen] = '\0';
+
+		DIR* pDir = opendir( szFound[0] ? szFound : "." );
+		if ( pDir )
+		{
+			struct dirent* pEntry;
+			while ( ( pEntry = readdir( pDir ) ) != NULL )
+			{
+				if ( strcasecmp( pEntry->d_name, szPart ) == 0 )
+				{
+					strcpy( szPart, pEntry->d_name );
+					break;
+				}
+			}
+			closedir( pDir );
+		}
+		if ( strlen( szFound ) + strlen( szPart ) + 2 > sizeof(szFound) )
+			return;
+		if ( szFound[0] && szFound[strlen( szFound ) - 1] != '/' )
+			strcat( szFound, "/" );
+		strcat( szFound, szPart );
+		if ( !pEnd )
+			break;
+		p = pEnd + 1;
+	}
+	if ( stat( szFound, &st ) == 0 )
+		strcpy( out, szFound );
 }
 
 static AdvOpenFile* FindFile( FILE* fp )

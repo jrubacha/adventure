@@ -35,6 +35,7 @@ done
 
 em++ -O2 -o "$OUT/adventure.js" "${objs[@]}" "${embeds[@]}" \
   --pre-js "$WEB_DIR/io/adv_pre.js" \
+  -Wl,--wrap=_ZN10CGameState12PlayGameTurnEv \
   -sASYNCIFY=1 -sASYNCIFY_STACK_SIZE=65536 \
   -sMODULARIZE=1 -sEXPORT_NAME=createAdventure \
   -sSINGLE_FILE=1 -sSINGLE_FILE_BINARY_ENCODE=0 -sENVIRONMENT=web,node \

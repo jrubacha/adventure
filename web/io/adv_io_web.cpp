@@ -102,11 +102,23 @@ static void Autosave( void )
 	unlink( advTempRestoreFile );
 }
 
+/*
+	Autosave between turns. main() runs "while(1) gameState.PlayGameTurn();"
+	and build.sh links with --wrap for CGameState::PlayGameTurn, so this runs
+	before every turn: the saved state is exactly the end of the last turn,
+	and continuing from it with the exe's -r option replays nothing.
+*/
+extern "C" void __real__ZN10CGameState12PlayGameTurnEv( CGameState* self );
+
+extern "C" void __wrap__ZN10CGameState12PlayGameTurnEv( CGameState* self )
+{
+	Autosave();
+	__real__ZN10CGameState12PlayGameTurnEv( self );
+}
+
 char* adv_io_read_line( char* buf, int n )
 {
 	int kind = adv_prompt_kind();
-	if ( kind == ADV_PROMPT_MAIN )
-		Autosave();
 	if ( !js_read_line( buf, n, kind ) )
 		exit( 0 );			// end of input (test driver); like the native build
 	return buf;
